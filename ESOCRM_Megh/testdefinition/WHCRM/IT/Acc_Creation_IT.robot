@@ -25,7 +25,8 @@ ${OUTPUT_DIR} =     C:/Users/mepandur/Desktop/D/'BMW CIM'/automation/ESOCRM_Megh
 #    Set Suite Variable    ${LOG_FILE_PATH}    ${LOG_PATH}
 #    Set Suite Variable    ${REPORT_FILE_PATH}    ${REPORT_PATH}
 
-create accounts in SF
+create accounts in WHSF
+#    create account in whcrm
     [Tags]    REG
     Log    ${OUTPUT_DIR}
     Login into salesforce    ${ADR_1}   ${TD_ADR.IT}    ${System}
