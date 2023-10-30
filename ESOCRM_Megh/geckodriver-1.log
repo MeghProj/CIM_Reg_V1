@@ -1,0 +1,22 @@
+1697879690952	geckodriver	INFO	Listening on 127.0.0.1:56787
+1697879691443	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "56788" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\mepandur\\AppData\\Local\\Temp\\rust_mozprofilepVZhDw"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1697879692253	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1697879692428	Marionette	INFO	Listening on port 56796
+Read port: 56796
+WebDriver BiDi listening on ws://127.0.0.1:56788
+1697879692560	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:56788/devtools/browser/4d794863-3148-4ccc-b171-e3221d83fcc8
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://bmw-hf-eso-xx--esohfintat.sandbox.my.salesforce.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://bmw-hf-eso-xx--esohfintat.sandbox.my.salesforce.com."
+1697879702738	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1697879711938	Marionette	INFO	Stopped listening on port 56796
+JavaScript warning: https://static.lightning.force.com/deu20s.sfdc-yzvdd4/auraFW/javascript/MDM0c01pMVUtd244bVVLc2VRYzQ2UWRkdk8xRWxIam5GeGw0LU1mRHRYQ3cyNDYuMTUuMi0zLjAuNA/aura_prod.js line 326 > eval, line 1: Script terminated by timeout at:
+vt@https://bmw-hf-eso-xx--esohfintat.sandbox.lightning.force.com/components/instrumentation/utility.js:1:7782
+
+JavaScript warning: moz-extension://b42611e2-6569-4fc4-aa71-455b748bc460/background.js, line 2: Script terminated by timeout at:
+5717/o/this.callbackOnce@moz-extension://b42611e2-6569-4fc4-aa71-455b748bc460/background.js:2:111088
+
+Dynamically enable window occlusion 1

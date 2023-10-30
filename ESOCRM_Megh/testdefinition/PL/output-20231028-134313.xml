@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.1 on win32)" generated="20231028 13:43:13.086" rpa="false" schemaversion="4">
+<suite id="s1" name="Acc Creation PL" source="C:\Users\mepandur\Desktop\D\BMW CIM\automation\ESOCRM_Megh\testdefinition\PL\Acc_Creation_PL.robot">
+<kw name="Get test case data" library="DataManager" type="SETUP">
+<arg>${TD_ADR.PL}</arg>
+<doc>Retrieving test and user data</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${TestDataPath}' != ''</arg>
+<arg>Get test data</arg>
+<arg>${TestDataPath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Get test data" library="DataManager">
+<arg>${TestDataPath}</arg>
+<doc>Retrieving the test case data</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{TESTDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:43:13.416" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:43:13.414" endtime="20231028 13:43:13.416"/>
+</kw>
+<msg timestamp="20231028 13:43:13.416" level="INFO">&amp;{TESTDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:43:13.414" endtime="20231028 13:43:13.416"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{TESTDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231028 13:43:13.416" level="INFO">&amp;{TESTDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:43:13.416" endtime="20231028 13:43:13.416"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:13.414" endtime="20231028 13:43:13.416"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:13.414" endtime="20231028 13:43:13.416"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:13.413" endtime="20231028 13:43:13.416"/>
+</kw>
+<test id="s1-t1" name="create accounts in SF" line="21">
+<kw name="Open Chrome Browser" library="Common_WEB" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231028 13:43:13.418" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20231028 13:43:13.418" endtime="20231028 13:43:15.529"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231028 13:43:15.529" endtime="20231028 13:43:15.675"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231028 13:43:15.675" endtime="20231028 13:43:15.676"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:13.418" endtime="20231028 13:43:15.676"/>
+</kw>
+<kw name="Login into salesforce" library="Common_WEB">
+<arg>${ADR_1}</arg>
+<arg>${TD_ADR.PL}</arg>
+<arg>${System}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:43:15.677" level="INFO">Testdata/Address/PL/Addresssets_PL.cfg</msg>
+<status status="PASS" starttime="20231028 13:43:15.677" endtime="20231028 13:43:15.677"/>
+</kw>
+<kw name="Get address data" library="DataManager">
+<arg>${path}</arg>
+<doc>Retrieving the compare values</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:43:15.679" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:43:15.678" endtime="20231028 13:43:15.679"/>
+</kw>
+<msg timestamp="20231028 13:43:15.679" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:43:15.678" endtime="20231028 13:43:15.679"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231028 13:43:15.680" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:43:15.679" endtime="20231028 13:43:15.680"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:15.677" endtime="20231028 13:43:15.680"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${cnt}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:43:15.681" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:43:15.680" endtime="20231028 13:43:15.681"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231028 13:43:15.681" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com'</msg>
+<status status="PASS" starttime="20231028 13:43:15.681" endtime="20231028 13:43:18.875"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${system}' == 'CAR'</arg>
+<arg>Navigate via advance button</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20231028 13:43:18.876" endtime="20231028 13:43:18.876"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:43:18.877" endtime="20231028 13:43:19.008"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${Input_Locator}</var>
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231028 13:43:19.037" level="INFO">${Input_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="b7a8646367a61a7aad4571dce0e54e4b", element="D001395648E5374B653DEB310759CA2D_element_8")&gt;</msg>
+<status status="PASS" starttime="20231028 13:43:19.009" endtime="20231028 13:43:19.037"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Input_Locator}</arg>
+<arg>${Username.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:19.039" level="INFO">Typing text 'pl.happybdcagent@bmw.eso.dev.xx.esointpl' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="b7a8646367a61a7aad4571dce0e54e4b", element="D001395648E5374B653DEB310759CA2D_element_8")&gt;'.</msg>
+<status status="PASS" starttime="20231028 13:43:19.037" endtime="20231028 13:43:19.272"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${passw_Locator}</var>
+<arg>xpath=${${System}_LOGIN.PASSWORD}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231028 13:43:19.283" level="INFO">${passw_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="b7a8646367a61a7aad4571dce0e54e4b", element="D001395648E5374B653DEB310759CA2D_element_17")&gt;</msg>
+<status status="PASS" starttime="20231028 13:43:19.272" endtime="20231028 13:43:19.283"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passw_Locator}</arg>
+<arg>${Crediantials.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:19.284" level="INFO">Typing text 'HappyPL01Agent2023' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="b7a8646367a61a7aad4571dce0e54e4b", element="D001395648E5374B653DEB310759CA2D_element_17")&gt;'.</msg>
+<status status="PASS" starttime="20231028 13:43:19.283" endtime="20231028 13:43:19.422"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:19.423" level="INFO">Clicking button 'xpath=//input[@id="Login"]'.</msg>
+<status status="PASS" starttime="20231028 13:43:19.422" endtime="20231028 13:43:28.036"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:15.676" endtime="20231028 13:43:28.036"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:43:33.038" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231028 13:43:28.037" endtime="20231028 13:43:33.038"/>
+</kw>
+<kw name="Create a new account in SF" library="Salesforce_WEB_account">
+<arg>${ADR_1}</arg>
+<arg>${TD_NAMES.FIRST}</arg>
+<arg>${TD_NAMES.LAST}</arg>
+<arg>${System}</arg>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>3</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Navigate to recent account page" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${address_data}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:43:33.046" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:43:33.045" endtime="20231028 13:43:33.047"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${home_url}</var>
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:43:33.048" level="INFO">${home_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com</msg>
+<status status="PASS" starttime="20231028 13:43:33.047" endtime="20231028 13:43:33.048"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pre_srt}</var>
+<arg>${Acccr_Url.${System}AC_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:43:33.050" level="INFO">${pre_srt} = lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:43:33.049" endtime="20231028 13:43:33.050"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${new_url}</var>
+<arg>${home_url}/${pre_srt}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:43:33.051" level="INFO">${new_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:43:33.051" endtime="20231028 13:43:33.051"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${new_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:43:33.052" level="INFO">https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:43:33.051" endtime="20231028 13:43:33.052"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${new_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231028 13:43:33.052" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent'</msg>
+<status status="PASS" starttime="20231028 13:43:33.052" endtime="20231028 13:43:34.754"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:33.043" endtime="20231028 13:43:34.754"/>
+</kw>
+<kw name="Navigate to account creation page" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:43:44.755" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:43:34.755" endtime="20231028 13:43:44.755"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEW}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:44.758" level="INFO">Clicking element 'xpath=//div[contains(text(),'New')]'.</msg>
+<status status="PASS" starttime="20231028 13:43:44.755" endtime="20231028 13:43:44.960"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:43:44.961" endtime="20231028 13:43:46.598"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:46.600" level="INFO">Clicking element 'xpath=//h1[contains(text(),'Person Account Private')]'.</msg>
+<status status="PASS" starttime="20231028 13:43:46.598" endtime="20231028 13:43:46.680"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:43:46.680" endtime="20231028 13:43:46.745"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:46.746" level="INFO">Clicking element 'xpath=//button[contains(text(),'Next')]'.</msg>
+<status status="PASS" starttime="20231028 13:43:46.745" endtime="20231028 13:43:46.874"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:43:51.875" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231028 13:43:46.874" endtime="20231028 13:43:51.875"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:43:51.876" endtime="20231028 13:43:51.949"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:34.754" endtime="20231028 13:43:51.949"/>
+</kw>
+<kw name="First" library="random_names">
+<var>${firstname}</var>
+<arg>${fir_nm}</arg>
+<msg timestamp="20231028 13:43:51.955" level="INFO">${firstname} = Adrian</msg>
+<status status="PASS" starttime="20231028 13:43:51.949" endtime="20231028 13:43:51.955"/>
+</kw>
+<kw name="Last" library="random_names">
+<var>${lastname}</var>
+<arg>${lst_nm}</arg>
+<msg timestamp="20231028 13:43:51.964" level="INFO">${lastname} = Kwapong_sogsun</msg>
+<status status="PASS" starttime="20231028 13:43:51.956" endtime="20231028 13:43:51.964"/>
+</kw>
+<kw name="Set email for account" library="Functions_Web">
+<var>${phnum}</var>
+<arg>${firstname}</arg>
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${email}</var>
+<arg>${firstname}.${lastname}_sogsun@mailinator.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:43:51.966" level="INFO">${email} = Adrian.Kwapong_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:43:51.965" endtime="20231028 13:43:51.966"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${email_lwr}</var>
+<arg>${email}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20231028 13:43:51.966" level="INFO">${email_lwr} = adrian.kwapong_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:43:51.966" endtime="20231028 13:43:51.966"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.EMAIL}</arg>
+<arg>${email_lwr}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:51.968" level="INFO">Typing text 'adrian.kwapong_sogsun_sogsun@mailinator.com' into text field 'xpath=//input[@name="Email"]'.</msg>
+<status status="PASS" starttime="20231028 13:43:51.966" endtime="20231028 13:43:52.614"/>
+</kw>
+<msg timestamp="20231028 13:43:52.615" level="INFO">${phnum} = adrian.kwapong_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:43:51.965" endtime="20231028 13:43:52.615"/>
+</kw>
+<kw name="set phone for account" library="Functions_Web">
+<var>${email}</var>
+<arg>${System}</arg>
+<kw name="Generate Random String" library="String">
+<var>${num}</var>
+<arg>9</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20231028 13:43:52.616" level="INFO">${num} = 370728374</msg>
+<status status="PASS" starttime="20231028 13:43:52.615" endtime="20231028 13:43:52.616"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${phn}</var>
+<arg>+4930${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:43:52.616" level="INFO">${phn} = +4930370728374</msg>
+<status status="PASS" starttime="20231028 13:43:52.616" endtime="20231028 13:43:52.616"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>${phn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:52.618" level="INFO">Typing text '+4930370728374' into text field 'xpath=//input[@name="PersonMobilePhone"]'.</msg>
+<status status="PASS" starttime="20231028 13:43:52.617" endtime="20231028 13:43:52.817"/>
+</kw>
+<msg timestamp="20231028 13:43:52.817" level="INFO">${email} = +4930370728374</msg>
+<status status="PASS" starttime="20231028 13:43:52.615" endtime="20231028 13:43:52.817"/>
+</kw>
+<kw name="Set firstname for account" library="Functions_Web">
+<arg>${firstname}</arg>
+<arg>${System}</arg>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20231028 13:43:52.817" endtime="20231028 13:43:53.115"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.FST_NM}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:53.117" level="INFO">Typing text 'Adrian' into text field 'xpath=//input[@name="FirstName"]'.</msg>
+<status status="PASS" starttime="20231028 13:43:53.116" endtime="20231028 13:43:53.343"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:52.817" endtime="20231028 13:43:53.343"/>
+</kw>
+<kw name="Set lastname for account" library="Functions_Web">
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:43:53.345" level="INFO">Typing text 'Kwapong_sogsun' into text field 'xpath=//input[@name="LastName"]'.</msg>
+<status status="PASS" starttime="20231028 13:43:53.344" endtime="20231028 13:43:53.622"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:53.343" endtime="20231028 13:43:53.623"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:43:56.624" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231028 13:43:53.623" endtime="20231028 13:43:56.624"/>
+</kw>
+<kw name="Set preferred address" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:43:58.626" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231028 13:43:56.625" endtime="20231028 13:43:58.626"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.PREF_ADR}</arg>
+<arg>Private</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:43:58.629" level="INFO">Sending key(s) ('Private', 'ENTER') to xpath=//label[contains(text(),'Preferred Address')]/parent::div/descendant::div[4]/child::button/span element.</msg>
+<msg timestamp="20231028 13:43:58.999" level="INFO">Sending keys Private</msg>
+<msg timestamp="20231028 13:43:59.053" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20231028 13:43:59.053" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20231028 13:43:58.626" endtime="20231028 13:43:59.076"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:56.624" endtime="20231028 13:43:59.078"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>40s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:44:39.078" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" starttime="20231028 13:43:59.078" endtime="20231028 13:44:39.078"/>
+</kw>
+<kw name="Save the account" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_SAV}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:44:39.082" level="INFO">Clicking element 'xpath=//button[contains(text(),'Save')]'.</msg>
+<status status="PASS" starttime="20231028 13:44:39.079" endtime="20231028 13:44:39.335"/>
+</kw>
+<status status="PASS" starttime="20231028 13:44:39.078" endtime="20231028 13:44:39.335"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:44:49.336" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:44:39.336" endtime="20231028 13:44:49.336"/>
+</kw>
+<status status="PASS" starttime="20231028 13:43:33.043" endtime="20231028 13:44:49.337"/>
+</iter>
+<iter>
+<var name="${index}">2</var>
+<kw name="Navigate to recent account page" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${address_data}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:44:49.340" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:44:49.338" endtime="20231028 13:44:49.340"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${home_url}</var>
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:44:49.343" level="INFO">${home_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com</msg>
+<status status="PASS" starttime="20231028 13:44:49.340" endtime="20231028 13:44:49.343"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pre_srt}</var>
+<arg>${Acccr_Url.${System}AC_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:44:49.345" level="INFO">${pre_srt} = lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:44:49.344" endtime="20231028 13:44:49.345"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${new_url}</var>
+<arg>${home_url}/${pre_srt}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:44:49.346" level="INFO">${new_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:44:49.346" endtime="20231028 13:44:49.346"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${new_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:44:49.347" level="INFO">https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:44:49.347" endtime="20231028 13:44:49.347"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${new_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231028 13:44:49.348" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent'</msg>
+<status status="PASS" starttime="20231028 13:44:49.347" endtime="20231028 13:44:52.370"/>
+</kw>
+<status status="PASS" starttime="20231028 13:44:49.337" endtime="20231028 13:44:52.370"/>
+</kw>
+<kw name="Navigate to account creation page" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:45:02.371" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:44:52.371" endtime="20231028 13:45:02.371"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEW}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:02.373" level="INFO">Clicking element 'xpath=//div[contains(text(),'New')]'.</msg>
+<status status="PASS" starttime="20231028 13:45:02.371" endtime="20231028 13:45:02.548"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:45:02.548" endtime="20231028 13:45:03.330"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:03.331" level="INFO">Clicking element 'xpath=//h1[contains(text(),'Person Account Private')]'.</msg>
+<status status="PASS" starttime="20231028 13:45:03.330" endtime="20231028 13:45:03.387"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:45:03.387" endtime="20231028 13:45:03.420"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:03.421" level="INFO">Clicking element 'xpath=//button[contains(text(),'Next')]'.</msg>
+<status status="PASS" starttime="20231028 13:45:03.420" endtime="20231028 13:45:03.505"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:45:08.505" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231028 13:45:03.505" endtime="20231028 13:45:08.505"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:45:08.506" endtime="20231028 13:45:08.581"/>
+</kw>
+<status status="PASS" starttime="20231028 13:44:52.370" endtime="20231028 13:45:08.581"/>
+</kw>
+<kw name="First" library="random_names">
+<var>${firstname}</var>
+<arg>${fir_nm}</arg>
+<msg timestamp="20231028 13:45:08.587" level="INFO">${firstname} = Brottman</msg>
+<status status="PASS" starttime="20231028 13:45:08.581" endtime="20231028 13:45:08.587"/>
+</kw>
+<kw name="Last" library="random_names">
+<var>${lastname}</var>
+<arg>${lst_nm}</arg>
+<msg timestamp="20231028 13:45:08.601" level="INFO">${lastname} = Magdalene_sogsun</msg>
+<status status="PASS" starttime="20231028 13:45:08.587" endtime="20231028 13:45:08.601"/>
+</kw>
+<kw name="Set email for account" library="Functions_Web">
+<var>${phnum}</var>
+<arg>${firstname}</arg>
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${email}</var>
+<arg>${firstname}.${lastname}_sogsun@mailinator.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:45:08.603" level="INFO">${email} = Brottman.Magdalene_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:45:08.603" endtime="20231028 13:45:08.603"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${email_lwr}</var>
+<arg>${email}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20231028 13:45:08.604" level="INFO">${email_lwr} = brottman.magdalene_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:45:08.604" endtime="20231028 13:45:08.604"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.EMAIL}</arg>
+<arg>${email_lwr}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:08.607" level="INFO">Typing text 'brottman.magdalene_sogsun_sogsun@mailinator.com' into text field 'xpath=//input[@name="Email"]'.</msg>
+<status status="PASS" starttime="20231028 13:45:08.605" endtime="20231028 13:45:09.229"/>
+</kw>
+<msg timestamp="20231028 13:45:09.230" level="INFO">${phnum} = brottman.magdalene_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:45:08.602" endtime="20231028 13:45:09.230"/>
+</kw>
+<kw name="set phone for account" library="Functions_Web">
+<var>${email}</var>
+<arg>${System}</arg>
+<kw name="Generate Random String" library="String">
+<var>${num}</var>
+<arg>9</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20231028 13:45:09.230" level="INFO">${num} = 363615435</msg>
+<status status="PASS" starttime="20231028 13:45:09.230" endtime="20231028 13:45:09.230"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${phn}</var>
+<arg>+4930${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:45:09.231" level="INFO">${phn} = +4930363615435</msg>
+<status status="PASS" starttime="20231028 13:45:09.230" endtime="20231028 13:45:09.231"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>${phn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:09.232" level="INFO">Typing text '+4930363615435' into text field 'xpath=//input[@name="PersonMobilePhone"]'.</msg>
+<status status="PASS" starttime="20231028 13:45:09.231" endtime="20231028 13:45:09.514"/>
+</kw>
+<msg timestamp="20231028 13:45:09.514" level="INFO">${email} = +4930363615435</msg>
+<status status="PASS" starttime="20231028 13:45:09.230" endtime="20231028 13:45:09.514"/>
+</kw>
+<kw name="Set firstname for account" library="Functions_Web">
+<arg>${firstname}</arg>
+<arg>${System}</arg>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20231028 13:45:09.514" endtime="20231028 13:45:09.807"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.FST_NM}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:09.810" level="INFO">Typing text 'Brottman' into text field 'xpath=//input[@name="FirstName"]'.</msg>
+<status status="PASS" starttime="20231028 13:45:09.808" endtime="20231028 13:45:10.183"/>
+</kw>
+<status status="PASS" starttime="20231028 13:45:09.514" endtime="20231028 13:45:10.183"/>
+</kw>
+<kw name="Set lastname for account" library="Functions_Web">
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:10.184" level="INFO">Typing text 'Magdalene_sogsun' into text field 'xpath=//input[@name="LastName"]'.</msg>
+<status status="PASS" starttime="20231028 13:45:10.183" endtime="20231028 13:45:10.359"/>
+</kw>
+<status status="PASS" starttime="20231028 13:45:10.183" endtime="20231028 13:45:10.359"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:45:13.359" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231028 13:45:10.359" endtime="20231028 13:45:13.359"/>
+</kw>
+<kw name="Set preferred address" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:45:15.363" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231028 13:45:13.361" endtime="20231028 13:45:15.363"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.PREF_ADR}</arg>
+<arg>Private</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:45:15.366" level="INFO">Sending key(s) ('Private', 'ENTER') to xpath=//label[contains(text(),'Preferred Address')]/parent::div/descendant::div[4]/child::button/span element.</msg>
+<msg timestamp="20231028 13:45:15.785" level="INFO">Sending keys Private</msg>
+<msg timestamp="20231028 13:45:15.819" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20231028 13:45:15.819" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20231028 13:45:15.363" endtime="20231028 13:45:15.837"/>
+</kw>
+<status status="PASS" starttime="20231028 13:45:13.360" endtime="20231028 13:45:15.837"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>40s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:45:55.838" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" starttime="20231028 13:45:15.837" endtime="20231028 13:45:55.838"/>
+</kw>
+<kw name="Save the account" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_SAV}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:45:55.842" level="INFO">Clicking element 'xpath=//button[contains(text(),'Save')]'.</msg>
+<status status="PASS" starttime="20231028 13:45:55.839" endtime="20231028 13:45:56.036"/>
+</kw>
+<status status="PASS" starttime="20231028 13:45:55.839" endtime="20231028 13:45:56.036"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:46:06.038" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:45:56.036" endtime="20231028 13:46:06.038"/>
+</kw>
+<status status="PASS" starttime="20231028 13:44:49.337" endtime="20231028 13:46:06.038"/>
+</iter>
+<status status="PASS" starttime="20231028 13:43:33.042" endtime="20231028 13:46:06.038"/>
+</for>
+<kw name="Validate Created account in SF" library="Salesforce_WEB_account">
+<arg>${ADR_1}</arg>
+<arg>${firstname}</arg>
+<arg>${lastname}</arg>
+<arg>${phnum}</arg>
+<arg>${email}</arg>
+<arg>${System}</arg>
+<kw name="Validate SF data">
+<arg>${firstname}</arg>
+<arg>${System}</arg>
+<msg timestamp="20231028 13:46:06.053" level="FAIL">No keyword with name 'Validate SF data' found.</msg>
+<status status="FAIL" starttime="20231028 13:46:06.053" endtime="20231028 13:46:06.053"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:46:06.039" endtime="20231028 13:46:06.054"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:43:33.039" endtime="20231028 13:46:06.054"/>
+</kw>
+<kw name="I close the browser" library="Common_WEB" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231028 13:46:06.056" endtime="20231028 13:46:08.710"/>
+</kw>
+<status status="PASS" starttime="20231028 13:46:06.055" endtime="20231028 13:46:08.711"/>
+</kw>
+<tag>REG</tag>
+<status status="FAIL" starttime="20231028 13:43:13.416" endtime="20231028 13:46:08.712">No keyword with name 'Validate SF data' found.</status>
+</test>
+<status status="FAIL" starttime="20231028 13:43:13.088" endtime="20231028 13:46:08.715"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">REG</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Acc Creation PL">Acc Creation PL</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231028 13:43:13.340" level="ERROR">Error in file 'C:\Users\mepandur\Desktop\D\BMW CIM\automation\ESOCRM_Megh\resource\DataManager.robot' on line 10: Creating keyword 'Set up Suite data' failed: User keyword cannot be empty.</msg>
+</errors>
+</robot>

@@ -1,0 +1,10 @@
+tasks:
+    default:
+        --variable language:cz
+        --outputdir C:/Users/mepandur/Desktop/D/'BMW CIM'/automation/ESOCRM_Megh/testdefinition/WHCRM/IT
+        --timestampoutput
+        --console verbose
+        --consolemarkers on
+        --loglevel TRACE:INFO
+        --tagstatcombine REG
+        robot   \testdefinition\WHCRM\IT\Acc_Creation_IT.robot

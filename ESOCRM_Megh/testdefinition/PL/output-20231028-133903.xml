@@ -1,0 +1,1649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.1 on win32)" generated="20231028 13:39:03.591" rpa="false" schemaversion="4">
+<suite id="s1" name="Acc Creation PL" source="C:\Users\mepandur\Desktop\D\BMW CIM\automation\ESOCRM_Megh\testdefinition\PL\Acc_Creation_PL.robot">
+<kw name="Get test case data" library="DataManager" type="SETUP">
+<arg>${TD_ADR.PL}</arg>
+<doc>Retrieving test and user data</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${TestDataPath}' != ''</arg>
+<arg>Get test data</arg>
+<arg>${TestDataPath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Get test data" library="DataManager">
+<arg>${TestDataPath}</arg>
+<doc>Retrieving the test case data</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{TESTDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:39:03.900" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:39:03.898" endtime="20231028 13:39:03.900"/>
+</kw>
+<msg timestamp="20231028 13:39:03.900" level="INFO">&amp;{TESTDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:39:03.898" endtime="20231028 13:39:03.900"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{TESTDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231028 13:39:03.901" level="INFO">&amp;{TESTDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:39:03.900" endtime="20231028 13:39:03.901"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:03.898" endtime="20231028 13:39:03.901"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:03.898" endtime="20231028 13:39:03.901"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:03.897" endtime="20231028 13:39:03.901"/>
+</kw>
+<test id="s1-t1" name="create accounts in SF" line="21">
+<kw name="Open Chrome Browser" library="Common_WEB" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231028 13:39:03.902" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20231028 13:39:03.902" endtime="20231028 13:39:05.897"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231028 13:39:05.897" endtime="20231028 13:39:06.026"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231028 13:39:06.026" endtime="20231028 13:39:06.026"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:03.902" endtime="20231028 13:39:06.026"/>
+</kw>
+<kw name="Login into salesforce" library="Common_WEB">
+<arg>${ADR_1}</arg>
+<arg>${TD_ADR.PL}</arg>
+<arg>${System}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:39:06.028" level="INFO">Testdata/Address/PL/Addresssets_PL.cfg</msg>
+<status status="PASS" starttime="20231028 13:39:06.028" endtime="20231028 13:39:06.028"/>
+</kw>
+<kw name="Get address data" library="DataManager">
+<arg>${path}</arg>
+<doc>Retrieving the compare values</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:39:06.030" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:39:06.029" endtime="20231028 13:39:06.030"/>
+</kw>
+<msg timestamp="20231028 13:39:06.030" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:39:06.028" endtime="20231028 13:39:06.030"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231028 13:39:06.030" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:39:06.030" endtime="20231028 13:39:06.030"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:06.028" endtime="20231028 13:39:06.030"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${cnt}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:39:06.032" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:39:06.031" endtime="20231028 13:39:06.032"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231028 13:39:06.033" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com'</msg>
+<status status="PASS" starttime="20231028 13:39:06.032" endtime="20231028 13:39:09.339"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${system}' == 'CAR'</arg>
+<arg>Navigate via advance button</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20231028 13:39:09.339" endtime="20231028 13:39:09.340"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:39:09.340" endtime="20231028 13:39:09.454"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${Input_Locator}</var>
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231028 13:39:09.478" level="INFO">${Input_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="77be3009e827ddb8496b43b7d4f805c3", element="4AD64429D4240E04233C2766AFBD99E5_element_8")&gt;</msg>
+<status status="PASS" starttime="20231028 13:39:09.455" endtime="20231028 13:39:09.478"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Input_Locator}</arg>
+<arg>${Username.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:09.481" level="INFO">Typing text 'pl.happybdcagent@bmw.eso.dev.xx.esointpl' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="77be3009e827ddb8496b43b7d4f805c3", element="4AD64429D4240E04233C2766AFBD99E5_element_8")&gt;'.</msg>
+<status status="PASS" starttime="20231028 13:39:09.478" endtime="20231028 13:39:09.695"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${passw_Locator}</var>
+<arg>xpath=${${System}_LOGIN.PASSWORD}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231028 13:39:09.707" level="INFO">${passw_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="77be3009e827ddb8496b43b7d4f805c3", element="4AD64429D4240E04233C2766AFBD99E5_element_17")&gt;</msg>
+<status status="PASS" starttime="20231028 13:39:09.696" endtime="20231028 13:39:09.707"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passw_Locator}</arg>
+<arg>${Crediantials.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:09.708" level="INFO">Typing text 'HappyPL01Agent2023' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="77be3009e827ddb8496b43b7d4f805c3", element="4AD64429D4240E04233C2766AFBD99E5_element_17")&gt;'.</msg>
+<status status="PASS" starttime="20231028 13:39:09.707" endtime="20231028 13:39:09.838"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:09.840" level="INFO">Clicking button 'xpath=//input[@id="Login"]'.</msg>
+<status status="PASS" starttime="20231028 13:39:09.839" endtime="20231028 13:39:19.370"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:06.027" endtime="20231028 13:39:19.371"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:39:24.372" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231028 13:39:19.372" endtime="20231028 13:39:24.372"/>
+</kw>
+<kw name="Create a new account in SF" library="Salesforce_WEB_account">
+<arg>${ADR_1}</arg>
+<arg>${TD_NAMES.FIRST}</arg>
+<arg>${TD_NAMES.LAST}</arg>
+<arg>${System}</arg>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>1</value>
+<value>3</value>
+<iter>
+<var name="${index}">1</var>
+<kw name="Navigate to recent account page" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${address_data}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:39:24.375" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:39:24.374" endtime="20231028 13:39:24.375"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${home_url}</var>
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:39:24.376" level="INFO">${home_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com</msg>
+<status status="PASS" starttime="20231028 13:39:24.375" endtime="20231028 13:39:24.376"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pre_srt}</var>
+<arg>${Acccr_Url.${System}AC_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:39:24.377" level="INFO">${pre_srt} = lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:39:24.376" endtime="20231028 13:39:24.377"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${new_url}</var>
+<arg>${home_url}/${pre_srt}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:39:24.377" level="INFO">${new_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:39:24.377" endtime="20231028 13:39:24.377"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${new_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:39:24.377" level="INFO">https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231028 13:39:24.377" endtime="20231028 13:39:24.377"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${new_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231028 13:39:24.377" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent'</msg>
+<status status="PASS" starttime="20231028 13:39:24.377" endtime="20231028 13:39:25.892"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:24.374" endtime="20231028 13:39:25.892"/>
+</kw>
+<kw name="Navigate to account creation page" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:39:35.894" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:39:25.894" endtime="20231028 13:39:35.894"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEW}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:35.897" level="INFO">Clicking element 'xpath=//div[contains(text(),'New')]'.</msg>
+<status status="PASS" starttime="20231028 13:39:35.895" endtime="20231028 13:39:36.183"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:39:36.185" endtime="20231028 13:39:38.269"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:38.271" level="INFO">Clicking element 'xpath=//h1[contains(text(),'Person Account Private')]'.</msg>
+<status status="PASS" starttime="20231028 13:39:38.269" endtime="20231028 13:39:38.327"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:39:38.327" endtime="20231028 13:39:38.359"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:38.361" level="INFO">Clicking element 'xpath=//button[contains(text(),'Next')]'.</msg>
+<status status="PASS" starttime="20231028 13:39:38.359" endtime="20231028 13:39:38.530"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:39:43.531" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231028 13:39:38.531" endtime="20231028 13:39:43.531"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231028 13:39:43.531" endtime="20231028 13:39:43.605"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:25.893" endtime="20231028 13:39:43.606"/>
+</kw>
+<kw name="First" library="random_names">
+<var>${firstname}</var>
+<arg>${fir_nm}</arg>
+<msg timestamp="20231028 13:39:43.619" level="INFO">${firstname} = Veneaux</msg>
+<status status="PASS" starttime="20231028 13:39:43.606" endtime="20231028 13:39:43.619"/>
+</kw>
+<kw name="Last" library="random_names">
+<var>${lastname}</var>
+<arg>${lst_nm}</arg>
+<msg timestamp="20231028 13:39:43.632" level="INFO">${lastname} = Phelan_sogsun</msg>
+<status status="PASS" starttime="20231028 13:39:43.619" endtime="20231028 13:39:43.632"/>
+</kw>
+<kw name="Set email for account" library="Functions_Web">
+<var>${phnum}</var>
+<arg>${firstname}</arg>
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${email}</var>
+<arg>${firstname}.${lastname}_sogsun@mailinator.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:39:43.634" level="INFO">${email} = Veneaux.Phelan_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:39:43.633" endtime="20231028 13:39:43.634"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${email_lwr}</var>
+<arg>${email}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20231028 13:39:43.634" level="INFO">${email_lwr} = veneaux.phelan_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:39:43.634" endtime="20231028 13:39:43.634"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.EMAIL}</arg>
+<arg>${email_lwr}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:43.637" level="INFO">Typing text 'veneaux.phelan_sogsun_sogsun@mailinator.com' into text field 'xpath=//input[@name="Email"]'.</msg>
+<status status="PASS" starttime="20231028 13:39:43.635" endtime="20231028 13:39:44.305"/>
+</kw>
+<msg timestamp="20231028 13:39:44.305" level="INFO">${phnum} = veneaux.phelan_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231028 13:39:43.632" endtime="20231028 13:39:44.305"/>
+</kw>
+<kw name="set phone for account" library="Functions_Web">
+<var>${email}</var>
+<arg>${System}</arg>
+<kw name="Generate Random String" library="String">
+<var>${num}</var>
+<arg>9</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20231028 13:39:44.306" level="INFO">${num} = 071628893</msg>
+<status status="PASS" starttime="20231028 13:39:44.306" endtime="20231028 13:39:44.306"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${phn}</var>
+<arg>+4930${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231028 13:39:44.306" level="INFO">${phn} = +4930071628893</msg>
+<status status="PASS" starttime="20231028 13:39:44.306" endtime="20231028 13:39:44.306"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>${phn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:44.308" level="INFO">Typing text '+4930071628893' into text field 'xpath=//input[@name="PersonMobilePhone"]'.</msg>
+<status status="PASS" starttime="20231028 13:39:44.306" endtime="20231028 13:39:44.490"/>
+</kw>
+<msg timestamp="20231028 13:39:44.490" level="INFO">${email} = +4930071628893</msg>
+<status status="PASS" starttime="20231028 13:39:44.305" endtime="20231028 13:39:44.490"/>
+</kw>
+<kw name="Set firstname for account" library="Functions_Web">
+<arg>${firstname}</arg>
+<arg>${System}</arg>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20231028 13:39:44.491" endtime="20231028 13:39:44.806"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.FST_NM}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:44.809" level="INFO">Typing text 'Veneaux' into text field 'xpath=//input[@name="FirstName"]'.</msg>
+<status status="PASS" starttime="20231028 13:39:44.807" endtime="20231028 13:39:45.123"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:44.490" endtime="20231028 13:39:45.123"/>
+</kw>
+<kw name="Set lastname for account" library="Functions_Web">
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231028 13:39:45.124" level="INFO">Typing text 'Phelan_sogsun' into text field 'xpath=//input[@name="LastName"]'.</msg>
+<status status="PASS" starttime="20231028 13:39:45.123" endtime="20231028 13:39:45.278"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:45.123" endtime="20231028 13:39:45.278"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:39:48.279" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231028 13:39:45.278" endtime="20231028 13:39:48.279"/>
+</kw>
+<kw name="Set preferred address" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:39:50.281" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231028 13:39:48.281" endtime="20231028 13:39:50.281"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.PREF_ADR}</arg>
+<arg>Private</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:39:50.286" level="INFO">Sending key(s) ('Private', 'ENTER') to xpath=//label[contains(text(),'Preferred Address')]/parent::div/descendant::div[4]/child::button/span element.</msg>
+<msg timestamp="20231028 13:39:50.712" level="INFO">Sending keys Private</msg>
+<msg timestamp="20231028 13:39:50.768" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20231028 13:39:50.768" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20231028 13:39:50.282" endtime="20231028 13:39:50.795"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:48.280" endtime="20231028 13:39:50.795"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>10x</arg>
+<arg>3000ms</arg>
+<arg>Search and set the address</arg>
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:39:50.798" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:39:50.797" endtime="20231028 13:39:50.798"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:39:50.798" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:39:50.798" endtime="20231028 13:39:50.799"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:39:50.801" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:39:50.800" endtime="20231028 13:39:50.801"/>
+</kw>
+<msg timestamp="20231028 13:39:50.802" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:39:50.800" endtime="20231028 13:39:50.802"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:39:50.803" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:39:50.802" endtime="20231028 13:39:50.803"/>
+</kw>
+<status status="PASS" starttime="20231028 13:39:50.799" endtime="20231028 13:39:50.803"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:39:50.803" level="INFO">${NMBR} = 2</msg>
+<status status="PASS" starttime="20231028 13:39:50.803" endtime="20231028 13:39:50.803"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:39:50.805" level="INFO">${Profile} = PL_SET_2</msg>
+<status status="PASS" starttime="20231028 13:39:50.805" endtime="20231028 13:39:50.805"/>
+</kw>
+<msg timestamp="20231028 13:39:50.806" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence Grove', 'city_given': 'Ballinasloe'}</msg>
+<status status="PASS" starttime="20231028 13:39:50.797" endtime="20231028 13:39:50.806"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20231028 13:39:50.806" endtime="20231028 13:39:50.848"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:39:50.850" level="INFO">Sending key(s) ('Lawrence Grove',) to xpath=//label[contains(text(),'Address Search')]/parent::span/following::div[2]/descendant::input[1] element.</msg>
+<msg timestamp="20231028 13:39:51.175" level="INFO">Sending keys Lawrence Grove</msg>
+<status status="PASS" starttime="20231028 13:39:50.848" endtime="20231028 13:39:51.524"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:39:55.525" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231028 13:39:51.524" endtime="20231028 13:39:55.525"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:39:55.526" level="INFO">${NMBR} = 1</msg>
+<status status="PASS" starttime="20231028 13:39:55.525" endtime="20231028 13:39:55.526"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:40:05.527" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:39:55.526" endtime="20231028 13:40:05.527"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:40:05.531" level="INFO">Sending key(s) ('ENTER',) to xpath=(//span[contains(text(),'Lawrence Grove')])[1] element.</msg>
+<msg timestamp="20231028 13:40:05.742" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:40:05.743" level="FAIL">Element with locator 'xpath=(//span[contains(text(),'Lawrence Grove')])[1]' not found.</msg>
+<status status="FAIL" starttime="20231028 13:40:05.527" endtime="20231028 13:40:05.745"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:40:05.745" endtime="20231028 13:40:05.745"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:39:50.796" endtime="20231028 13:40:05.745"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:40:08.751" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:40:08.749" endtime="20231028 13:40:08.751"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:40:08.752" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:40:08.752" endtime="20231028 13:40:08.752"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:40:08.758" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:40:08.756" endtime="20231028 13:40:08.758"/>
+</kw>
+<msg timestamp="20231028 13:40:08.759" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:40:08.755" endtime="20231028 13:40:08.759"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:40:08.760" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:40:08.759" endtime="20231028 13:40:08.760"/>
+</kw>
+<status status="PASS" starttime="20231028 13:40:08.752" endtime="20231028 13:40:08.761"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:40:08.763" level="INFO">${NMBR} = 3</msg>
+<status status="PASS" starttime="20231028 13:40:08.762" endtime="20231028 13:40:08.763"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:40:08.764" level="INFO">${Profile} = PL_SET_3</msg>
+<status status="PASS" starttime="20231028 13:40:08.763" endtime="20231028 13:40:08.764"/>
+</kw>
+<msg timestamp="20231028 13:40:08.766" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'Wellington Quay', 'street_index': 'Wellington', 'city_given': 'New Ross'}</msg>
+<status status="PASS" starttime="20231028 13:40:08.748" endtime="20231028 13:40:08.766"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20231028 13:40:08.767" endtime="20231028 13:40:08.967"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:40:08.969" level="INFO">Sending key(s) ('Wellington Quay',) to xpath=//label[contains(text(),'Address Search')]/parent::span/following::div[2]/descendant::input[1] element.</msg>
+<msg timestamp="20231028 13:40:09.330" level="INFO">Sending keys Wellington Quay</msg>
+<status status="PASS" starttime="20231028 13:40:08.967" endtime="20231028 13:40:09.783"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:40:13.785" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231028 13:40:09.784" endtime="20231028 13:40:13.785"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:40:13.785" level="INFO">${NMBR} = 2</msg>
+<status status="PASS" starttime="20231028 13:40:13.785" endtime="20231028 13:40:13.785"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:40:23.786" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:40:13.785" endtime="20231028 13:40:23.786"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:40:23.789" level="INFO">Sending key(s) ('ENTER',) to xpath=(//span[contains(text(),'Wellington Quay')])[2] element.</msg>
+<msg timestamp="20231028 13:40:24.032" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:40:24.032" level="FAIL">Element with locator 'xpath=(//span[contains(text(),'Wellington Quay')])[2]' not found.</msg>
+<status status="FAIL" starttime="20231028 13:40:23.786" endtime="20231028 13:40:24.033"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:40:24.033" endtime="20231028 13:40:24.033"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:40:08.746" endtime="20231028 13:40:24.034"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:40:27.039" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:40:27.037" endtime="20231028 13:40:27.039"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:40:27.040" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:40:27.040" endtime="20231028 13:40:27.040"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:40:27.046" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:40:27.043" endtime="20231028 13:40:27.046"/>
+</kw>
+<msg timestamp="20231028 13:40:27.047" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:40:27.042" endtime="20231028 13:40:27.047"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:40:27.048" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:40:27.047" endtime="20231028 13:40:27.048"/>
+</kw>
+<status status="PASS" starttime="20231028 13:40:27.040" endtime="20231028 13:40:27.049"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:40:27.049" level="INFO">${NMBR} = 3</msg>
+<status status="PASS" starttime="20231028 13:40:27.049" endtime="20231028 13:40:27.049"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:40:27.050" level="INFO">${Profile} = PL_SET_3</msg>
+<status status="PASS" starttime="20231028 13:40:27.050" endtime="20231028 13:40:27.050"/>
+</kw>
+<msg timestamp="20231028 13:40:27.052" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'Wellington Quay', 'street_index': 'Wellington', 'city_given': 'New Ross'}</msg>
+<status status="PASS" starttime="20231028 13:40:27.036" endtime="20231028 13:40:27.052"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20231028 13:40:27.053" endtime="20231028 13:40:27.198"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:40:27.200" level="INFO">Sending key(s) ('Wellington Quay',) to xpath=//label[contains(text(),'Address Search')]/parent::span/following::div[2]/descendant::input[1] element.</msg>
+<msg timestamp="20231028 13:40:27.559" level="INFO">Sending keys Wellington Quay</msg>
+<status status="PASS" starttime="20231028 13:40:27.198" endtime="20231028 13:40:27.794"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:40:31.794" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231028 13:40:27.794" endtime="20231028 13:40:31.794"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:40:31.796" level="INFO">${NMBR} = 2</msg>
+<status status="PASS" starttime="20231028 13:40:31.794" endtime="20231028 13:40:31.796"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:40:41.797" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:40:31.796" endtime="20231028 13:40:41.797"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:40:41.800" level="INFO">Sending key(s) ('ENTER',) to xpath=(//span[contains(text(),'Wellington Quay')])[2] element.</msg>
+<msg timestamp="20231028 13:40:41.994" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:40:41.994" level="FAIL">Element with locator 'xpath=(//span[contains(text(),'Wellington Quay')])[2]' not found.</msg>
+<status status="FAIL" starttime="20231028 13:40:41.797" endtime="20231028 13:40:41.995"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:40:41.995" endtime="20231028 13:40:41.995"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:40:27.035" endtime="20231028 13:40:41.995"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:40:45.001" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:40:44.998" endtime="20231028 13:40:45.001"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:40:45.001" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:40:45.001" endtime="20231028 13:40:45.002"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:40:45.007" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:40:45.005" endtime="20231028 13:40:45.008"/>
+</kw>
+<msg timestamp="20231028 13:40:45.008" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:40:45.004" endtime="20231028 13:40:45.008"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:40:45.010" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:40:45.009" endtime="20231028 13:40:45.010"/>
+</kw>
+<status status="PASS" starttime="20231028 13:40:45.002" endtime="20231028 13:40:45.010"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:40:45.011" level="INFO">${NMBR} = 2</msg>
+<status status="PASS" starttime="20231028 13:40:45.010" endtime="20231028 13:40:45.011"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:40:45.012" level="INFO">${Profile} = PL_SET_2</msg>
+<status status="PASS" starttime="20231028 13:40:45.011" endtime="20231028 13:40:45.012"/>
+</kw>
+<msg timestamp="20231028 13:40:45.013" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence Grove', 'city_given': 'Ballinasloe'}</msg>
+<status status="PASS" starttime="20231028 13:40:44.998" endtime="20231028 13:40:45.013"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20231028 13:40:45.014" endtime="20231028 13:40:45.161"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:40:45.164" level="INFO">Sending key(s) ('Lawrence Grove',) to xpath=//label[contains(text(),'Address Search')]/parent::span/following::div[2]/descendant::input[1] element.</msg>
+<msg timestamp="20231028 13:40:45.502" level="INFO">Sending keys Lawrence Grove</msg>
+<status status="PASS" starttime="20231028 13:40:45.161" endtime="20231028 13:40:45.752"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:40:49.752" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231028 13:40:45.752" endtime="20231028 13:40:49.752"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:40:49.753" level="INFO">${NMBR} = 2</msg>
+<status status="PASS" starttime="20231028 13:40:49.752" endtime="20231028 13:40:49.753"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:40:59.755" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:40:49.753" endtime="20231028 13:40:59.755"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:40:59.758" level="INFO">Sending key(s) ('ENTER',) to xpath=(//span[contains(text(),'Lawrence Grove')])[2] element.</msg>
+<msg timestamp="20231028 13:40:59.992" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:40:59.993" level="FAIL">Element with locator 'xpath=(//span[contains(text(),'Lawrence Grove')])[2]' not found.</msg>
+<status status="FAIL" starttime="20231028 13:40:59.755" endtime="20231028 13:40:59.994"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:40:59.994" endtime="20231028 13:40:59.994"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:40:44.996" endtime="20231028 13:40:59.994"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:41:02.998" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:41:02.996" endtime="20231028 13:41:02.998"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:41:02.998" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:41:02.998" endtime="20231028 13:41:02.999"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:41:03.004" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:41:03.002" endtime="20231028 13:41:03.004"/>
+</kw>
+<msg timestamp="20231028 13:41:03.005" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:03.001" endtime="20231028 13:41:03.005"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:41:03.006" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:03.005" endtime="20231028 13:41:03.006"/>
+</kw>
+<status status="PASS" starttime="20231028 13:41:02.999" endtime="20231028 13:41:03.006"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:03.007" level="INFO">${NMBR} = 3</msg>
+<status status="PASS" starttime="20231028 13:41:03.007" endtime="20231028 13:41:03.007"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:41:03.008" level="INFO">${Profile} = PL_SET_3</msg>
+<status status="PASS" starttime="20231028 13:41:03.008" endtime="20231028 13:41:03.008"/>
+</kw>
+<msg timestamp="20231028 13:41:03.010" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'Wellington Quay', 'street_index': 'Wellington', 'city_given': 'New Ross'}</msg>
+<status status="PASS" starttime="20231028 13:41:02.996" endtime="20231028 13:41:03.010"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20231028 13:41:03.011" endtime="20231028 13:41:03.180"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:41:03.182" level="INFO">Sending key(s) ('Wellington Quay',) to xpath=//label[contains(text(),'Address Search')]/parent::span/following::div[2]/descendant::input[1] element.</msg>
+<msg timestamp="20231028 13:41:03.512" level="INFO">Sending keys Wellington Quay</msg>
+<status status="PASS" starttime="20231028 13:41:03.180" endtime="20231028 13:41:03.859"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:41:07.859" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231028 13:41:03.859" endtime="20231028 13:41:07.859"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:07.860" level="INFO">${NMBR} = 2</msg>
+<status status="PASS" starttime="20231028 13:41:07.859" endtime="20231028 13:41:07.860"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:41:17.862" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:41:07.860" endtime="20231028 13:41:17.862"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:41:17.863" level="INFO">Sending key(s) ('ENTER',) to xpath=(//span[contains(text(),'Wellington Quay')])[2] element.</msg>
+<msg timestamp="20231028 13:41:18.059" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:41:18.060" level="FAIL">Element with locator 'xpath=(//span[contains(text(),'Wellington Quay')])[2]' not found.</msg>
+<status status="FAIL" starttime="20231028 13:41:17.862" endtime="20231028 13:41:18.060"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:18.060" endtime="20231028 13:41:18.060"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:41:02.994" endtime="20231028 13:41:18.061"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:41:21.091" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:41:21.089" endtime="20231028 13:41:21.091"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:41:21.092" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:41:21.091" endtime="20231028 13:41:21.092"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:41:21.098" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:41:21.095" endtime="20231028 13:41:21.098"/>
+</kw>
+<msg timestamp="20231028 13:41:21.099" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:21.094" endtime="20231028 13:41:21.099"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:41:21.100" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:21.099" endtime="20231028 13:41:21.100"/>
+</kw>
+<status status="PASS" starttime="20231028 13:41:21.092" endtime="20231028 13:41:21.100"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:21.101" level="INFO">${NMBR} = 4</msg>
+<status status="PASS" starttime="20231028 13:41:21.101" endtime="20231028 13:41:21.101"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:41:21.102" level="INFO">${Profile} = PL_SET_4</msg>
+<status status="PASS" starttime="20231028 13:41:21.101" endtime="20231028 13:41:21.102"/>
+</kw>
+<msg timestamp="20231028 13:41:21.104" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'ul. Aleje Jerozolimskie', 'street_index': 'ul. Aleje Jerozolimskie', 'city_given': 'Brzeg Dolny'}</msg>
+<status status="PASS" starttime="20231028 13:41:21.088" endtime="20231028 13:41:21.104"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<status status="PASS" starttime="20231028 13:41:21.104" endtime="20231028 13:41:21.261"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:41:21.265" level="INFO">Sending key(s) ('ul. Aleje Jerozolimskie',) to xpath=//label[contains(text(),'Address Search')]/parent::span/following::div[2]/descendant::input[1] element.</msg>
+<msg timestamp="20231028 13:41:21.651" level="INFO">Sending keys ul. Aleje Jerozolimskie</msg>
+<status status="PASS" starttime="20231028 13:41:21.261" endtime="20231028 13:41:21.989"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:41:25.990" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" starttime="20231028 13:41:21.989" endtime="20231028 13:41:25.990"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:25.991" level="INFO">${NMBR} = 1</msg>
+<status status="PASS" starttime="20231028 13:41:25.990" endtime="20231028 13:41:25.991"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231028 13:41:35.992" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231028 13:41:25.991" endtime="20231028 13:41:35.992"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231028 13:41:35.996" level="INFO">Sending key(s) ('ENTER',) to xpath=(//span[contains(text(),'ul. Aleje Jerozolimskie')])[1] element.</msg>
+<msg timestamp="20231028 13:41:36.247" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:41:36.247" level="FAIL">Element with locator 'xpath=(//span[contains(text(),'ul. Aleje Jerozolimskie')])[1]' not found.</msg>
+<status status="FAIL" starttime="20231028 13:41:35.992" endtime="20231028 13:41:36.248"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:36.248" endtime="20231028 13:41:36.248"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:41:21.061" endtime="20231028 13:41:36.248"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:41:39.251" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:41:39.250" endtime="20231028 13:41:39.252"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:41:39.252" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:41:39.252" endtime="20231028 13:41:39.252"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:41:39.259" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:41:39.256" endtime="20231028 13:41:39.259"/>
+</kw>
+<msg timestamp="20231028 13:41:39.259" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:39.255" endtime="20231028 13:41:39.259"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:41:39.261" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:39.260" endtime="20231028 13:41:39.261"/>
+</kw>
+<status status="PASS" starttime="20231028 13:41:39.253" endtime="20231028 13:41:39.261"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:39.262" level="INFO">${NMBR} = 1</msg>
+<status status="PASS" starttime="20231028 13:41:39.261" endtime="20231028 13:41:39.262"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:41:39.263" level="INFO">${Profile} = PL_SET_1</msg>
+<status status="PASS" starttime="20231028 13:41:39.262" endtime="20231028 13:41:39.263"/>
+</kw>
+<msg timestamp="20231028 13:41:39.265" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}</msg>
+<status status="PASS" starttime="20231028 13:41:39.249" endtime="20231028 13:41:39.265"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:41:39.555" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:41:39.555" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7A7377892+54818]
+	(No symbol) [0x00007FF7A72E6AC2]
+	(No symbol) [0x00007FF7A719D8ED]
+	(No symbol) [0x00007FF7A71D6C7A]
+	(No symbol) [0x00007FF7A71FEAAA]
+	(No symbol) [0x00007FF7A71D5036]
+	(No symbol) [0x00007FF7A71FECC0]
+	(No symbol) [0x00007FF7A72175A2]
+	(No symbol) [0x00007FF7A71FE883]
+	(No symbol) [0x00007FF7A71D3691]
+	(No symbol) [0x00007FF7A71D48D4]
+	GetHandleVerifier [0x00007FF7A76DB992+3610402]
+	GetHandleVerifier [0x00007FF7A7731860+3962352]
+	GetHandleVerifier [0x00007FF7A7729D4F+3930847]
+	GetHandleVerifier [0x00007FF7A7413646+693206]
+	(No symbol) [0x00007FF7A72F1628]
+	(No symbol) [0x00007FF7A72ED934]
+	(No symbol) [0x00007FF7A72EDA62]
+	(No symbol) [0x00007FF7A72DE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+<status status="FAIL" starttime="20231028 13:41:39.265" endtime="20231028 13:41:39.560"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:39.560" endtime="20231028 13:41:39.560"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:39.561" endtime="20231028 13:41:39.561"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:39.561" endtime="20231028 13:41:39.561"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:39.561" endtime="20231028 13:41:39.561"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:39.561" endtime="20231028 13:41:39.561"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:39.561" endtime="20231028 13:41:39.561"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:41:39.248" endtime="20231028 13:41:39.561"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:41:42.565" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:41:42.563" endtime="20231028 13:41:42.565"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:41:42.567" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:41:42.566" endtime="20231028 13:41:42.567"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:41:42.573" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:41:42.570" endtime="20231028 13:41:42.573"/>
+</kw>
+<msg timestamp="20231028 13:41:42.574" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:42.569" endtime="20231028 13:41:42.574"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:41:42.575" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:42.574" endtime="20231028 13:41:42.575"/>
+</kw>
+<status status="PASS" starttime="20231028 13:41:42.567" endtime="20231028 13:41:42.575"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:42.576" level="INFO">${NMBR} = 4</msg>
+<status status="PASS" starttime="20231028 13:41:42.575" endtime="20231028 13:41:42.576"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:41:42.577" level="INFO">${Profile} = PL_SET_4</msg>
+<status status="PASS" starttime="20231028 13:41:42.576" endtime="20231028 13:41:42.577"/>
+</kw>
+<msg timestamp="20231028 13:41:42.579" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'ul. Aleje Jerozolimskie', 'street_index': 'ul. Aleje Jerozolimskie', 'city_given': 'Brzeg Dolny'}</msg>
+<status status="PASS" starttime="20231028 13:41:42.562" endtime="20231028 13:41:42.579"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:41:42.877" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:41:42.877" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7A7377892+54818]
+	(No symbol) [0x00007FF7A72E6AC2]
+	(No symbol) [0x00007FF7A719D8ED]
+	(No symbol) [0x00007FF7A71D6C7A]
+	(No symbol) [0x00007FF7A71FEAAA]
+	(No symbol) [0x00007FF7A71D5036]
+	(No symbol) [0x00007FF7A71FECC0]
+	(No symbol) [0x00007FF7A72175A2]
+	(No symbol) [0x00007FF7A71FE883]
+	(No symbol) [0x00007FF7A71D3691]
+	(No symbol) [0x00007FF7A71D48D4]
+	GetHandleVerifier [0x00007FF7A76DB992+3610402]
+	GetHandleVerifier [0x00007FF7A7731860+3962352]
+	GetHandleVerifier [0x00007FF7A7729D4F+3930847]
+	GetHandleVerifier [0x00007FF7A7413646+693206]
+	(No symbol) [0x00007FF7A72F1628]
+	(No symbol) [0x00007FF7A72ED934]
+	(No symbol) [0x00007FF7A72EDA62]
+	(No symbol) [0x00007FF7A72DE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+<status status="FAIL" starttime="20231028 13:41:42.579" endtime="20231028 13:41:42.878"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:42.878" endtime="20231028 13:41:42.878"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:42.878" endtime="20231028 13:41:42.878"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:42.878" endtime="20231028 13:41:42.878"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:42.878" endtime="20231028 13:41:42.878"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:42.879" endtime="20231028 13:41:42.879"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:42.879" endtime="20231028 13:41:42.879"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:41:42.561" endtime="20231028 13:41:42.879"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:41:45.883" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:41:45.882" endtime="20231028 13:41:45.884"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:41:45.884" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:41:45.884" endtime="20231028 13:41:45.884"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:41:45.890" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:41:45.887" endtime="20231028 13:41:45.890"/>
+</kw>
+<msg timestamp="20231028 13:41:45.891" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:45.887" endtime="20231028 13:41:45.891"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:41:45.892" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:45.891" endtime="20231028 13:41:45.893"/>
+</kw>
+<status status="PASS" starttime="20231028 13:41:45.885" endtime="20231028 13:41:45.893"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:45.894" level="INFO">${NMBR} = 3</msg>
+<status status="PASS" starttime="20231028 13:41:45.893" endtime="20231028 13:41:45.894"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:41:45.894" level="INFO">${Profile} = PL_SET_3</msg>
+<status status="PASS" starttime="20231028 13:41:45.894" endtime="20231028 13:41:45.894"/>
+</kw>
+<msg timestamp="20231028 13:41:45.897" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'Wellington Quay', 'street_index': 'Wellington', 'city_given': 'New Ross'}</msg>
+<status status="PASS" starttime="20231028 13:41:45.881" endtime="20231028 13:41:45.897"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:41:46.191" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:41:46.191" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7A7377892+54818]
+	(No symbol) [0x00007FF7A72E6AC2]
+	(No symbol) [0x00007FF7A719D8ED]
+	(No symbol) [0x00007FF7A71D6C7A]
+	(No symbol) [0x00007FF7A71FEAAA]
+	(No symbol) [0x00007FF7A71D5036]
+	(No symbol) [0x00007FF7A71FECC0]
+	(No symbol) [0x00007FF7A72175A2]
+	(No symbol) [0x00007FF7A71FE883]
+	(No symbol) [0x00007FF7A71D3691]
+	(No symbol) [0x00007FF7A71D48D4]
+	GetHandleVerifier [0x00007FF7A76DB992+3610402]
+	GetHandleVerifier [0x00007FF7A7731860+3962352]
+	GetHandleVerifier [0x00007FF7A7729D4F+3930847]
+	GetHandleVerifier [0x00007FF7A7413646+693206]
+	(No symbol) [0x00007FF7A72F1628]
+	(No symbol) [0x00007FF7A72ED934]
+	(No symbol) [0x00007FF7A72EDA62]
+	(No symbol) [0x00007FF7A72DE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+<status status="FAIL" starttime="20231028 13:41:45.897" endtime="20231028 13:41:46.192"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:46.192" endtime="20231028 13:41:46.192"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:46.192" endtime="20231028 13:41:46.192"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:46.192" endtime="20231028 13:41:46.192"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:46.192" endtime="20231028 13:41:46.192"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:46.192" endtime="20231028 13:41:46.192"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:46.193" endtime="20231028 13:41:46.193"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:41:45.880" endtime="20231028 13:41:46.193"/>
+</kw>
+<kw name="Search and set the address" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get an address set" library="DataManager">
+<var>${per_str}</var>
+<arg>${addressdata}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${testdata}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231028 13:41:49.197" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231028 13:41:49.195" endtime="20231028 13:41:49.197"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${country}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231028 13:41:49.198" level="INFO">PL</msg>
+<status status="PASS" starttime="20231028 13:41:49.198" endtime="20231028 13:41:49.198"/>
+</kw>
+<kw name="Get test address data" library="DataManager">
+<arg>${TD_ADR.${country}}</arg>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA_TC}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231028 13:41:49.205" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231028 13:41:49.202" endtime="20231028 13:41:49.205"/>
+</kw>
+<msg timestamp="20231028 13:41:49.205" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:49.201" endtime="20231028 13:41:49.205"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA_TC}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20231028 13:41:49.207" level="INFO">&amp;{ADRDATA_TC} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231028 13:41:49.206" endtime="20231028 13:41:49.207"/>
+</kw>
+<status status="PASS" starttime="20231028 13:41:49.198" endtime="20231028 13:41:49.207"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 5)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231028 13:41:49.208" level="INFO">${NMBR} = 1</msg>
+<status status="PASS" starttime="20231028 13:41:49.207" endtime="20231028 13:41:49.208"/>
+</kw>
+<kw name="Format String" library="String">
+<var>${Profile}</var>
+<arg>${country}_SET_${NMBR}</arg>
+<doc>Formats a ``template`` using the given ``positional`` and ``named`` arguments.</doc>
+<msg timestamp="20231028 13:41:49.209" level="INFO">${Profile} = PL_SET_1</msg>
+<status status="PASS" starttime="20231028 13:41:49.208" endtime="20231028 13:41:49.209"/>
+</kw>
+<msg timestamp="20231028 13:41:49.210" level="INFO">${per_str} = {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}</msg>
+<status status="PASS" starttime="20231028 13:41:49.194" endtime="20231028 13:41:49.210"/>
+</kw>
+<kw name="Clear Element Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<doc>Clears the value of the text-input-element identified by ``locator``.</doc>
+<msg timestamp="20231028 13:41:49.507" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231028 13:41:49.508" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7A7377892+54818]
+	(No symbol) [0x00007FF7A72E6AC2]
+	(No symbol) [0x00007FF7A719D8ED]
+	(No symbol) [0x00007FF7A71D6C7A]
+	(No symbol) [0x00007FF7A71FEAAA]
+	(No symbol) [0x00007FF7A71D5036]
+	(No symbol) [0x00007FF7A71FECC0]
+	(No symbol) [0x00007FF7A72175A2]
+	(No symbol) [0x00007FF7A71FE883]
+	(No symbol) [0x00007FF7A71D3691]
+	(No symbol) [0x00007FF7A71D48D4]
+	GetHandleVerifier [0x00007FF7A76DB992+3610402]
+	GetHandleVerifier [0x00007FF7A7731860+3962352]
+	GetHandleVerifier [0x00007FF7A7729D4F+3930847]
+	GetHandleVerifier [0x00007FF7A7413646+693206]
+	(No symbol) [0x00007FF7A72F1628]
+	(No symbol) [0x00007FF7A72ED934]
+	(No symbol) [0x00007FF7A72EDA62]
+	(No symbol) [0x00007FF7A72DE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+<status status="FAIL" starttime="20231028 13:41:49.211" endtime="20231028 13:41:49.508"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.SER_ADR}</arg>
+<arg>${per_str.street_given}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.509" endtime="20231028 13:41:49.509"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>4s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.509" endtime="20231028 13:41:49.509"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${NMBR}</var>
+<arg>random.randint(1, 2)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.509" endtime="20231028 13:41:49.509"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.509" endtime="20231028 13:41:49.509"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=(//span[contains(text(),'${per_str.street_given}')])[${NMBR}]</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.509" endtime="20231028 13:41:49.509"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.509" endtime="20231028 13:41:49.509"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:41:49.193" endtime="20231028 13:41:49.509"/>
+</kw>
+<msg timestamp="20231028 13:41:49.510" level="FAIL">Keyword 'Search and set the address' failed after retrying 10 times. The last error was: ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7A7377892+54818]
+	(No symbol) [0x00007FF7A72E6AC2]
+	(No symbol) [0x00007FF7A719D8ED]
+	(No symbol) [0x00007FF7A71D6C7A]
+	(No symbol) [0x00007FF7A71FEAAA]
+	(No symbol) [0x00007FF7A71D5036]
+	(No symbol) [0x00007FF7A71FECC0]
+	(No symbol) [0x00007FF7A72175A2]
+	(No symbol) [0x00007FF7A71FE883]
+	(No symbol) [0x00007FF7A71D3691]
+	(No symbol) [0x00007FF7A71D48D4]
+	GetHandleVerifier [0x00007FF7A76DB992+3610402]
+	GetHandleVerifier [0x00007FF7A7731860+3962352]
+	GetHandleVerifier [0x00007FF7A7729D4F+3930847]
+	GetHandleVerifier [0x00007FF7A7413646+693206]
+	(No symbol) [0x00007FF7A72F1628]
+	(No symbol) [0x00007FF7A72ED934]
+	(No symbol) [0x00007FF7A72EDA62]
+	(No symbol) [0x00007FF7A72DE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+<status status="FAIL" starttime="20231028 13:39:50.796" endtime="20231028 13:41:49.510"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>40s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.510" endtime="20231028 13:41:49.510"/>
+</kw>
+<kw name="Save the account" library="Functions_Web">
+<arg>${System}</arg>
+<status status="NOT RUN" starttime="20231028 13:41:49.510" endtime="20231028 13:41:49.510"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231028 13:41:49.510" endtime="20231028 13:41:49.510"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:39:24.374" endtime="20231028 13:41:49.510"/>
+</iter>
+<status status="FAIL" starttime="20231028 13:39:24.374" endtime="20231028 13:41:49.510"/>
+</for>
+<kw name="Validate Created account in SF" library="Salesforce_WEB_account">
+<arg>${ADR_1}</arg>
+<arg>${firstname}</arg>
+<arg>${lastname}</arg>
+<arg>${phnum}</arg>
+<arg>${email}</arg>
+<arg>${System}</arg>
+<status status="NOT RUN" starttime="20231028 13:41:49.510" endtime="20231028 13:41:49.510"/>
+</kw>
+<status status="FAIL" starttime="20231028 13:39:24.372" endtime="20231028 13:41:49.510"/>
+</kw>
+<kw name="I close the browser" library="Common_WEB" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231028 13:41:49.511" endtime="20231028 13:41:52.073"/>
+</kw>
+<status status="PASS" starttime="20231028 13:41:49.511" endtime="20231028 13:41:52.073"/>
+</kw>
+<tag>REG</tag>
+<status status="FAIL" starttime="20231028 13:39:03.901" endtime="20231028 13:41:52.074">Keyword 'Search and set the address' failed after retrying 10 times. The last error was: ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7A7377892+54818]
+	(No symbol) [0x00007FF7A72E6AC2]
+	(No symbol) [0x00007FF7A719D8ED]
+	(No symbol) [0x00007FF7A71D6C7A]
+	(No symbol) [0x00007FF7A71FEAAA]
+	(No symbol) [0x00007FF7A71D5036]
+	(No symbol) [0x00007FF7A71FECC0]
+	(No symbol) [0x00007FF7A72175A2]
+	(No symbol) [0x00007FF7A71FE883]
+	(No symbol) [0x00007FF7A71D3691]
+	(No symbol) [0x00007FF7A71D48D4]
+	GetHandleVerifier [0x00007FF7A76DB992+3610402]
+	GetHandleVerifier [0x00007FF7A7731860+3962352]
+	GetHandleVerifier [0x00007FF7A7729D4F+3930847]
+	GetHandleVerifier [0x00007FF7A7413646+693206]
+	(No symbol) [0x00007FF7A72F1628]
+	(No symbol) [0x00007FF7A72ED934]
+	(No symbol) [0x00007FF7A72EDA62]
+	(No symbol) [0x00007FF7A72DE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</status>
+</test>
+<status status="FAIL" starttime="20231028 13:39:03.593" endtime="20231028 13:41:52.080"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">REG</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Acc Creation PL">Acc Creation PL</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231028 13:39:03.829" level="ERROR">Error in file 'C:\Users\mepandur\Desktop\D\BMW CIM\automation\ESOCRM_Megh\resource\DataManager.robot' on line 10: Creating keyword 'Set up Suite data' failed: User keyword cannot be empty.</msg>
+</errors>
+</robot>
