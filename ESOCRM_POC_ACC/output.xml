@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.1 on win32)" generated="20231019 12:51:55.556" rpa="false" schemaversion="4">
+<suite id="s1" name="Acc Creation PL" source="C:\Users\mepandur\Desktop\D\BMW CIM\automation\ESOCRM_POC_ACC\ESOCRM_POC_ACC\testdefinition\PL\Acc_Creation_PL.robot">
+<kw name="Get test case data" library="DataManager" type="SETUP">
+<arg>${TD_ADR.PL}</arg>
+<doc>Retrieving test and user data</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${TestDataPath}' != ''</arg>
+<arg>Get test data</arg>
+<arg>${TestDataPath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Get test data" library="DataManager">
+<arg>${TestDataPath}</arg>
+<doc>Retrieving the test case data</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{TESTDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231019 12:51:55.865" level="INFO">${CONFIGData} = {}</msg>
+<status status="PASS" starttime="20231019 12:51:55.865" endtime="20231019 12:51:55.865"/>
+</kw>
+<msg timestamp="20231019 12:51:55.865" level="INFO">&amp;{TESTDATA} = { }</msg>
+<status status="PASS" starttime="20231019 12:51:55.865" endtime="20231019 12:51:55.865"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{TESTDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231019 12:51:55.865" level="INFO">&amp;{TESTDATA} = { }</msg>
+<status status="PASS" starttime="20231019 12:51:55.865" endtime="20231019 12:51:55.865"/>
+</kw>
+<status status="PASS" starttime="20231019 12:51:55.864" endtime="20231019 12:51:55.865"/>
+</kw>
+<status status="PASS" starttime="20231019 12:51:55.864" endtime="20231019 12:51:55.865"/>
+</kw>
+<status status="PASS" starttime="20231019 12:51:55.863" endtime="20231019 12:51:55.865"/>
+</kw>
+<test id="s1-t1" name="create accounts in SF" line="21">
+<kw name="Open Chrome Browser" library="Common_WEB" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231019 12:51:55.867" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20231019 12:51:55.866" endtime="20231019 12:51:57.876"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231019 12:51:57.876" endtime="20231019 12:51:58.001"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231019 12:51:58.001" endtime="20231019 12:51:58.002"/>
+</kw>
+<status status="PASS" starttime="20231019 12:51:55.866" endtime="20231019 12:51:58.002"/>
+</kw>
+<kw name="Login into salesforce" library="Common_WEB">
+<arg>${ADR_1}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${cnt}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231019 12:51:58.004" level="FAIL">Resolving variable '${ADRDATA.PL_SET_1}' failed: Variable '${ADRDATA}' not found.</msg>
+<status status="FAIL" starttime="20231019 12:51:58.002" endtime="20231019 12:51:58.004"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${Base_Url.ESOSF_${country}}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" starttime="20231019 12:51:58.004" endtime="20231019 12:51:58.004"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${ESO_LOC.USER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231019 12:51:58.004" endtime="20231019 12:51:58.004"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${Input_Locator}</var>
+<arg>xpath=${ESO_LOC.USER}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" starttime="20231019 12:51:58.004" endtime="20231019 12:51:58.005"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Input_Locator}</arg>
+<arg>${Username.ESOSF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231019 12:51:58.005" endtime="20231019 12:51:58.005"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${passw_Locator}</var>
+<arg>xpath=${ESO_LOC.PASSWORD}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="NOT RUN" starttime="20231019 12:51:58.005" endtime="20231019 12:51:58.005"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passw_Locator}</arg>
+<arg>${Crediantials.ESOSF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231019 12:51:58.005" endtime="20231019 12:51:58.005"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=${ESO_LOC.LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231019 12:51:58.005" endtime="20231019 12:51:58.006"/>
+</kw>
+<status status="FAIL" starttime="20231019 12:51:58.002" endtime="20231019 12:51:58.006"/>
+</kw>
+<kw name="Create a new account in SF" library="Salesforce_WEB_account">
+<arg>${ADR_1}</arg>
+<status status="NOT RUN" starttime="20231019 12:51:58.007" endtime="20231019 12:51:58.007"/>
+</kw>
+<kw name="I close the browser" library="Common_WEB" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231019 12:51:58.008" endtime="20231019 12:52:00.329"/>
+</kw>
+<status status="PASS" starttime="20231019 12:51:58.007" endtime="20231019 12:52:00.329"/>
+</kw>
+<tag>GUI_POC</tag>
+<status status="FAIL" starttime="20231019 12:51:55.866" endtime="20231019 12:52:00.330">Resolving variable '${ADRDATA.PL_SET_1}' failed: Variable '${ADRDATA}' not found.</status>
+</test>
+<status status="FAIL" starttime="20231019 12:51:55.559" endtime="20231019 12:52:00.334"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">GUI_POC</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Acc Creation PL">Acc Creation PL</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
