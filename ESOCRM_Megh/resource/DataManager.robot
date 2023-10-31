@@ -9,7 +9,9 @@ Resource    Config_ESO_WEB.robot
 
 Set up Suite data
     [Documentation]     setting test case, address and system data
-    [Arguments]
+    [Arguments]     ${TestDataPath}
+    Get test case data    $TestDataPath
+    Get address data    $TestDataPath
 
 Get test case data
     [Documentation]    Retrieving test and user data

@@ -20,7 +20,7 @@
 # -- Locators to the account
 # ------------------------------------
 &{ESO_ACC_LOC} =
-...    MOB=//span[text()='Mobile (Private)']/parent::div/following-sibling::div[1]/span//a/span[2]
+...    MOB=//span[text()='Mobile (Private)']/parent::div/following-sibling::div[1]/span//span[2]
 ...    EMAIL=//span[text()='Email (Private)']/parent::div/following-sibling::div//a[@class="emailuiFormattedEmail"]
 ...    FSTLST_NM=//lightning-formatted-name[@data-output-element-id='output-field']
 ...    PREF_ADR=//span[text()='Preferred Address']/parent::div/following-sibling::div[1]//lightning-formatted-text

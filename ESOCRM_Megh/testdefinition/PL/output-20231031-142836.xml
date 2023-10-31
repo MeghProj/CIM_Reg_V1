@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.1 on win32)" generated="20231031 14:28:36.021" rpa="false" schemaversion="4">
+<suite id="s1" name="Acc Creation PL" source="C:\Users\mepandur\Desktop\D\BMW CIM\automation\ESOCRM_Megh\testdefinition\PL\Acc_Creation_PL.robot">
+<kw name="Set up Suite data" library="DataManager" type="SETUP">
+<arg>${TD_ADR.PL}</arg>
+<doc>setting test case, address and system data</doc>
+<kw name="Get test case data" library="DataManager">
+<arg>$TestDataPath</arg>
+<doc>Retrieving test and user data</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${TestDataPath}' != ''</arg>
+<arg>Get test data</arg>
+<arg>${TestDataPath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Get test data" library="DataManager">
+<arg>${TestDataPath}</arg>
+<doc>Retrieving the test case data</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{TESTDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231031 14:28:36.372" level="INFO">${CONFIGData} = {}</msg>
+<status status="PASS" starttime="20231031 14:28:36.372" endtime="20231031 14:28:36.372"/>
+</kw>
+<msg timestamp="20231031 14:28:36.372" level="INFO">&amp;{TESTDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:28:36.372" endtime="20231031 14:28:36.372"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{TESTDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231031 14:28:36.372" level="INFO">&amp;{TESTDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:28:36.372" endtime="20231031 14:28:36.372"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:36.371" endtime="20231031 14:28:36.373"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:36.369" endtime="20231031 14:28:36.373"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:36.368" endtime="20231031 14:28:36.373"/>
+</kw>
+<kw name="Get address data" library="DataManager">
+<arg>$TestDataPath</arg>
+<doc>Retrieving the compare values</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231031 14:28:36.373" level="INFO">${CONFIGData} = {}</msg>
+<status status="PASS" starttime="20231031 14:28:36.373" endtime="20231031 14:28:36.374"/>
+</kw>
+<msg timestamp="20231031 14:28:36.374" level="INFO">&amp;{ADRDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:28:36.373" endtime="20231031 14:28:36.374"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231031 14:28:36.374" level="INFO">&amp;{ADRDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:28:36.374" endtime="20231031 14:28:36.374"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:36.373" endtime="20231031 14:28:36.374"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:36.367" endtime="20231031 14:28:36.374"/>
+</kw>
+<test id="s1-t1" name="create accounts in SF" line="21">
+<kw name="Open Chrome Browser" library="Common_WEB" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231031 14:28:36.376" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20231031 14:28:36.375" endtime="20231031 14:28:38.640"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231031 14:28:38.640" endtime="20231031 14:28:38.782"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231031 14:28:38.783" endtime="20231031 14:28:38.784"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:36.375" endtime="20231031 14:28:38.785"/>
+</kw>
+<kw name="Login into salesforce" library="Common_WEB">
+<arg>${ADR_1}</arg>
+<arg>${TD_ADR.PL}</arg>
+<arg>${System}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231031 14:28:38.787" level="INFO">Testdata/Address/PL/Addresssets_PL.cfg</msg>
+<status status="PASS" starttime="20231031 14:28:38.787" endtime="20231031 14:28:38.787"/>
+</kw>
+<kw name="Get address data" library="DataManager">
+<arg>${path}</arg>
+<doc>Retrieving the compare values</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231031 14:28:38.789" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231031 14:28:38.788" endtime="20231031 14:28:38.789"/>
+</kw>
+<msg timestamp="20231031 14:28:38.789" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231031 14:28:38.788" endtime="20231031 14:28:38.789"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231031 14:28:38.790" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231031 14:28:38.790" endtime="20231031 14:28:38.790"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:38.787" endtime="20231031 14:28:38.790"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${cnt}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231031 14:28:38.791" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231031 14:28:38.790" endtime="20231031 14:28:38.791"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231031 14:28:38.792" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com'</msg>
+<status status="PASS" starttime="20231031 14:28:38.791" endtime="20231031 14:28:41.334"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${system}' == 'CAR'</arg>
+<arg>Navigate via advance button</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20231031 14:28:41.335" endtime="20231031 14:28:41.336"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 14:28:41.336" endtime="20231031 14:28:41.396"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${Input_Locator}</var>
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231031 14:28:41.408" level="INFO">${Input_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="2f422c587e860163cb5b6ea4ab8f1f5b", element="712D3463D9B643056970C19EC06E8B4D_element_8")&gt;</msg>
+<status status="PASS" starttime="20231031 14:28:41.396" endtime="20231031 14:28:41.408"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Input_Locator}</arg>
+<arg>${Username.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:28:41.410" level="INFO">Typing text 'pl.happybdcagent@bmw.eso.dev.xx.esointpl' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="2f422c587e860163cb5b6ea4ab8f1f5b", element="712D3463D9B643056970C19EC06E8B4D_element_8")&gt;'.</msg>
+<status status="PASS" starttime="20231031 14:28:41.408" endtime="20231031 14:28:41.560"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${passw_Locator}</var>
+<arg>xpath=${${System}_LOGIN.PASSWORD}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231031 14:28:41.575" level="INFO">${passw_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="2f422c587e860163cb5b6ea4ab8f1f5b", element="712D3463D9B643056970C19EC06E8B4D_element_15")&gt;</msg>
+<status status="PASS" starttime="20231031 14:28:41.560" endtime="20231031 14:28:41.575"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passw_Locator}</arg>
+<arg>${Crediantials.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:28:41.577" level="INFO">Typing text 'HappyPL01Agent2023' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="2f422c587e860163cb5b6ea4ab8f1f5b", element="712D3463D9B643056970C19EC06E8B4D_element_15")&gt;'.</msg>
+<status status="PASS" starttime="20231031 14:28:41.576" endtime="20231031 14:28:41.665"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231031 14:28:41.666" level="INFO">Clicking button 'xpath=//input[@id="Login"]'.</msg>
+<status status="PASS" starttime="20231031 14:28:41.665" endtime="20231031 14:28:51.597"/>
+</kw>
+<status status="PASS" starttime="20231031 14:28:38.786" endtime="20231031 14:28:51.597"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 14:29:01.598" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231031 14:28:51.598" endtime="20231031 14:29:01.599"/>
+</kw>
+<kw name="Validate Created account in SF" library="Salesforce_WEB_account">
+<arg>Kyrstin</arg>
+<arg>Billi_sogsun</arg>
+<arg>+4930719078202</arg>
+<arg>kyrstin.billi_sogsun_sogsun@mailinator.com</arg>
+<arg>ESO</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${name}</var>
+<arg>${firstname} ${lastname}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231031 14:29:01.604" level="INFO">${name} = Kyrstin Billi_sogsun</msg>
+<status status="PASS" starttime="20231031 14:29:01.602" endtime="20231031 14:29:01.604"/>
+</kw>
+<kw name="Validate SF data" library="Validations_Web">
+<arg>${name}</arg>
+<arg>${${System}_ACC_LOC.FSTLST_NM}</arg>
+<arg>name</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${appData}</var>
+<arg>xpath= ${loc}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231031 14:29:01.733" level="INFO">${appData} = Kyrstin Billi_sogsun</msg>
+<status status="PASS" starttime="20231031 14:29:01.609" endtime="20231031 14:29:01.733"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${appData}</arg>
+<arg>${expectedData}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231031 14:29:01.733" endtime="20231031 14:29:01.734"/>
+</kw>
+<status status="PASS" starttime="20231031 14:29:01.733" endtime="20231031 14:29:01.734"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" library="BuiltIn">
+<arg>${field} is not same as entered data ${expectedData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231031 14:29:01.735" endtime="20231031 14:29:01.735"/>
+</kw>
+<status status="NOT RUN" starttime="20231031 14:29:01.734" endtime="20231031 14:29:01.735"/>
+</branch>
+<status status="PASS" starttime="20231031 14:29:01.733" endtime="20231031 14:29:01.735"/>
+</try>
+<status status="PASS" starttime="20231031 14:29:01.604" endtime="20231031 14:29:01.735"/>
+</kw>
+<kw name="Validate SF data" library="Validations_Web">
+<arg>${phnum}</arg>
+<arg>${${System}_ACC_LOC.MOB}</arg>
+<arg>phone number</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${appData}</var>
+<arg>xpath= ${loc}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231031 14:29:02.117" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231031 14:29:02.118" level="FAIL">Element with locator 'xpath= //span[text()='Mobile (Private)']/parent::div/following-sibling::div[1]/span//a/span[2]' not found.</msg>
+<status status="FAIL" starttime="20231031 14:29:01.738" endtime="20231031 14:29:02.123"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${appData}</arg>
+<arg>${expectedData}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20231031 14:29:02.123" endtime="20231031 14:29:02.123"/>
+</kw>
+<status status="NOT RUN" starttime="20231031 14:29:02.123" endtime="20231031 14:29:02.124"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log" library="BuiltIn">
+<arg>${field} is not same as entered data ${expectedData}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231031 14:29:02.124" endtime="20231031 14:29:02.124"/>
+</kw>
+<status status="NOT RUN" starttime="20231031 14:29:02.124" endtime="20231031 14:29:02.124"/>
+</branch>
+<status status="NOT RUN" starttime="20231031 14:29:02.123" endtime="20231031 14:29:02.124"/>
+</try>
+<status status="FAIL" starttime="20231031 14:29:01.735" endtime="20231031 14:29:02.124"/>
+</kw>
+<kw name="Validate SF data" library="Validations_Web">
+<arg>${email}</arg>
+<arg>${${System}_ACC_LOC.EMAIL}</arg>
+<arg>private email</arg>
+<status status="NOT RUN" starttime="20231031 14:29:02.124" endtime="20231031 14:29:02.124"/>
+</kw>
+<kw name="Validate SF data" library="Validations_Web">
+<arg>Private</arg>
+<arg>${${System}_ACC_LOC.PREF_ADR}</arg>
+<arg>preferred address</arg>
+<status status="NOT RUN" starttime="20231031 14:29:02.125" endtime="20231031 14:29:02.125"/>
+</kw>
+<status status="FAIL" starttime="20231031 14:29:01.600" endtime="20231031 14:29:02.125"/>
+</kw>
+<kw name="I close the browser" library="Common_WEB" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231031 14:29:02.126" endtime="20231031 14:29:04.486"/>
+</kw>
+<status status="PASS" starttime="20231031 14:29:02.125" endtime="20231031 14:29:04.486"/>
+</kw>
+<tag>REG</tag>
+<status status="FAIL" starttime="20231031 14:28:36.374" endtime="20231031 14:29:04.487">Element with locator 'xpath= //span[text()='Mobile (Private)']/parent::div/following-sibling::div[1]/span//a/span[2]' not found.</status>
+</test>
+<status status="FAIL" starttime="20231031 14:28:36.024" endtime="20231031 14:29:04.488"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">REG</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Acc Creation PL">Acc Creation PL</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

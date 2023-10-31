@@ -23,8 +23,8 @@ Create a new account in SF
         Navigate to account creation page   ${System}
         ${firstname} =    First    ${fir_nm}
         ${lastname} =    Last    ${lst_nm}
-        ${phnum} =      Set email for account    ${firstname}    ${lastname}    ${System}
-        ${email} =      set phone for account   ${System}
+        ${email} =      Set email for account    ${firstname}    ${lastname}    ${System}
+        ${phnum} =      set phone for account   ${System}
         Set firstname for account    ${firstname}   ${System}
         Set lastname for account    ${lastname}     ${System}
 #        Scroll until the bottom of account creation page
@@ -35,7 +35,7 @@ Create a new account in SF
         Save the account    ${System}
         sleep    40s
 #    END
-    Validate Created account in SF      ${ADR_1}    ${firstname}    ${lastname}     ${phnum}    ${email}    ${System}
+    Validate Created account in SF      ${firstname}    ${lastname}     ${phnum}    ${email}    ${System}
 
 
 Create a new account in Carmen
@@ -60,8 +60,8 @@ Create a new account in Carmen
     END
 
 Validate Created account in SF
-    [Arguments]     ${ADR_1}    ${firstname}    ${lastname}     ${phnum}    ${email}    ${System}
-    ${name} =   ${firstname} ${lastname}
+    [Arguments]         ${firstname}    ${lastname}     ${phnum}    ${email}    ${System}
+    ${name} =   set variable    ${firstname} ${lastname}
     Validate SF data    ${name}    ${${System}_ACC_LOC.FSTLST_NM}      name
     Validate SF data    ${phnum}    ${${System}_ACC_LOC.MOB}    phone number
     Validate SF data    ${email}    ${${System}_ACC_LOC.EMAIL}    private email

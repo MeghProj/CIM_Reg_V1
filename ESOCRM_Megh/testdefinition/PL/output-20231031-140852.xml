@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1 (Python 3.11.1 on win32)" generated="20231031 14:08:52.550" rpa="false" schemaversion="4">
+<suite id="s1" name="Acc Creation PL" source="C:\Users\mepandur\Desktop\D\BMW CIM\automation\ESOCRM_Megh\testdefinition\PL\Acc_Creation_PL.robot">
+<kw name="Set up Suite data" library="DataManager" type="SETUP">
+<arg>${TD_ADR.PL}</arg>
+<doc>setting test case, address and system data</doc>
+<kw name="Get test case data" library="DataManager">
+<arg>$TestDataPath</arg>
+<doc>Retrieving test and user data</doc>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${TestDataPath}' != ''</arg>
+<arg>Get test data</arg>
+<arg>${TestDataPath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Get test data" library="DataManager">
+<arg>${TestDataPath}</arg>
+<doc>Retrieving the test case data</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{TESTDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231031 14:08:53.135" level="INFO">${CONFIGData} = {}</msg>
+<status status="PASS" starttime="20231031 14:08:53.134" endtime="20231031 14:08:53.135"/>
+</kw>
+<msg timestamp="20231031 14:08:53.135" level="INFO">&amp;{TESTDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:08:53.134" endtime="20231031 14:08:53.135"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{TESTDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231031 14:08:53.135" level="INFO">&amp;{TESTDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:08:53.135" endtime="20231031 14:08:53.135"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:53.134" endtime="20231031 14:08:53.136"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:53.131" endtime="20231031 14:08:53.136"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:53.131" endtime="20231031 14:08:53.136"/>
+</kw>
+<kw name="Get address data" library="DataManager">
+<arg>$TestDataPath</arg>
+<doc>Retrieving the compare values</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231031 14:08:53.137" level="INFO">${CONFIGData} = {}</msg>
+<status status="PASS" starttime="20231031 14:08:53.136" endtime="20231031 14:08:53.137"/>
+</kw>
+<msg timestamp="20231031 14:08:53.137" level="INFO">&amp;{ADRDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:08:53.136" endtime="20231031 14:08:53.137"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231031 14:08:53.137" level="INFO">&amp;{ADRDATA} = { }</msg>
+<status status="PASS" starttime="20231031 14:08:53.137" endtime="20231031 14:08:53.137"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:53.136" endtime="20231031 14:08:53.137"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:53.130" endtime="20231031 14:08:53.137"/>
+</kw>
+<test id="s1-t1" name="create accounts in SF" line="21">
+<kw name="Open Chrome Browser" library="Common_WEB" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231031 14:08:53.139" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20231031 14:08:53.138" endtime="20231031 14:08:56.172"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231031 14:08:56.172" endtime="20231031 14:08:56.310"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231031 14:08:56.310" endtime="20231031 14:08:56.310"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:53.138" endtime="20231031 14:08:56.310"/>
+</kw>
+<kw name="Login into salesforce" library="Common_WEB">
+<arg>${ADR_1}</arg>
+<arg>${TD_ADR.PL}</arg>
+<arg>${System}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>${path}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231031 14:08:56.312" level="INFO">Testdata/Address/PL/Addresssets_PL.cfg</msg>
+<status status="PASS" starttime="20231031 14:08:56.312" endtime="20231031 14:08:56.312"/>
+</kw>
+<kw name="Get address data" library="DataManager">
+<arg>${path}</arg>
+<doc>Retrieving the compare values</doc>
+<kw name="Get CONFIG Test data" library="DataManager">
+<var>&amp;{ADRDATA}</var>
+<arg>${TestDataPath}</arg>
+<kw name="Get Cfg Data" library="config">
+<var>${CONFIGData}</var>
+<arg>${FilePathCONFIG}</arg>
+<msg timestamp="20231031 14:08:56.318" level="INFO">${CONFIGData} = {'PL_SET_1': {'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'}, 'PL_SET_2': {'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawre...</msg>
+<status status="PASS" starttime="20231031 14:08:56.314" endtime="20231031 14:08:56.318"/>
+</kw>
+<msg timestamp="20231031 14:08:56.318" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231031 14:08:56.313" endtime="20231031 14:08:56.318"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>&amp;{ADRDATA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20231031 14:08:56.319" level="INFO">&amp;{ADRDATA} = { PL_SET_1={'country': 'PL', 'street_given': 'South Mall', 'street_index': 'South Mall', 'city_given': 'Cork'} | PL_SET_2={'country': 'PL', 'street_given': 'Lawrence Grove', 'street_index': 'Lawrence ...</msg>
+<status status="PASS" starttime="20231031 14:08:56.318" endtime="20231031 14:08:56.319"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:56.313" endtime="20231031 14:08:56.319"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${cnt}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231031 14:08:56.320" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231031 14:08:56.319" endtime="20231031 14:08:56.320"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231031 14:08:56.320" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com'</msg>
+<status status="PASS" starttime="20231031 14:08:56.320" endtime="20231031 14:08:58.747"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${system}' == 'CAR'</arg>
+<arg>Navigate via advance button</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20231031 14:08:58.748" endtime="20231031 14:08:58.748"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 14:08:58.748" endtime="20231031 14:08:58.803"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${Input_Locator}</var>
+<arg>xpath=${${System}_LOGIN.USER}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231031 14:08:58.814" level="INFO">${Input_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="84d8d3474ea13309fac0302385e6e344", element="73FDECA6EFDD736D6D45D403A6C1C457_element_8")&gt;</msg>
+<status status="PASS" starttime="20231031 14:08:58.803" endtime="20231031 14:08:58.814"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Input_Locator}</arg>
+<arg>${Username.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:08:58.815" level="INFO">Typing text 'pl.happybdcagent@bmw.eso.dev.xx.esointpl' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="84d8d3474ea13309fac0302385e6e344", element="73FDECA6EFDD736D6D45D403A6C1C457_element_8")&gt;'.</msg>
+<status status="PASS" starttime="20231031 14:08:58.814" endtime="20231031 14:08:58.930"/>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<var>${passw_Locator}</var>
+<arg>xpath=${${System}_LOGIN.PASSWORD}</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<msg timestamp="20231031 14:08:58.944" level="INFO">${passw_Locator} = &lt;selenium.webdriver.remote.webelement.WebElement (session="84d8d3474ea13309fac0302385e6e344", element="73FDECA6EFDD736D6D45D403A6C1C457_element_15")&gt;</msg>
+<status status="PASS" starttime="20231031 14:08:58.930" endtime="20231031 14:08:58.944"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passw_Locator}</arg>
+<arg>${Crediantials.${System}SF_${country}}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:08:58.945" level="INFO">Typing text 'HappyPL01Agent2023' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="84d8d3474ea13309fac0302385e6e344", element="73FDECA6EFDD736D6D45D403A6C1C457_element_15")&gt;'.</msg>
+<status status="PASS" starttime="20231031 14:08:58.944" endtime="20231031 14:08:59.057"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath=${${System}_LOGIN.LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231031 14:08:59.060" level="INFO">Clicking button 'xpath=//input[@id="Login"]'.</msg>
+<status status="PASS" starttime="20231031 14:08:59.057" endtime="20231031 14:09:09.450"/>
+</kw>
+<status status="PASS" starttime="20231031 14:08:56.311" endtime="20231031 14:09:09.451"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5S</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 14:09:14.452" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231031 14:09:09.451" endtime="20231031 14:09:14.452"/>
+</kw>
+<kw name="Create a new account in SF" library="Salesforce_WEB_account">
+<arg>${ADR_1}</arg>
+<arg>${TD_NAMES.FIRST}</arg>
+<arg>${TD_NAMES.LAST}</arg>
+<arg>${System}</arg>
+<kw name="Navigate to recent account page" library="Functions_Web">
+<arg>${address_data}</arg>
+<arg>${System}</arg>
+<kw name="Get From Dictionary" library="Collections">
+<var>${country}</var>
+<arg>${ADRDATA.${address_data}}</arg>
+<arg>country</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231031 14:09:14.455" level="INFO">${country} = PL</msg>
+<status status="PASS" starttime="20231031 14:09:14.454" endtime="20231031 14:09:14.455"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${home_url}</var>
+<arg>${Base_Url.${System}SF_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231031 14:09:14.456" level="INFO">${home_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com</msg>
+<status status="PASS" starttime="20231031 14:09:14.455" endtime="20231031 14:09:14.456"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${pre_srt}</var>
+<arg>${Acccr_Url.${System}AC_${country}}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231031 14:09:14.456" level="INFO">${pre_srt} = lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231031 14:09:14.456" endtime="20231031 14:09:14.456"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${new_url}</var>
+<arg>${home_url}/${pre_srt}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231031 14:09:14.457" level="INFO">${new_url} = https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231031 14:09:14.457" endtime="20231031 14:09:14.457"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${new_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231031 14:09:14.457" level="INFO">https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent</msg>
+<status status="PASS" starttime="20231031 14:09:14.457" endtime="20231031 14:09:14.457"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${new_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231031 14:09:14.457" level="INFO">Opening url 'https://rsp-dev-xx--esointpl.sandbox.my.salesforce.com/lightning/o/Account/list?filterName=Recent'</msg>
+<status status="PASS" starttime="20231031 14:09:14.457" endtime="20231031 14:09:15.584"/>
+</kw>
+<status status="PASS" starttime="20231031 14:09:14.454" endtime="20231031 14:09:15.585"/>
+</kw>
+<kw name="Navigate to account creation page" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 14:09:25.587" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231031 14:09:15.586" endtime="20231031 14:09:25.587"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEW}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 14:09:25.591" level="INFO">Clicking element 'xpath=//div[contains(text(),'New')]'.</msg>
+<status status="PASS" starttime="20231031 14:09:25.588" endtime="20231031 14:09:26.095"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 14:09:26.095" endtime="20231031 14:09:31.914"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.NEW_PER}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 14:09:31.915" level="INFO">Clicking element 'xpath=//h1[contains(text(),'Person Account Private')]'.</msg>
+<status status="PASS" starttime="20231031 14:09:31.914" endtime="20231031 14:09:31.986"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 14:09:31.986" endtime="20231031 14:09:32.019"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_NEXT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 14:09:32.020" level="INFO">Clicking element 'xpath=//button[contains(text(),'Next')]'.</msg>
+<status status="PASS" starttime="20231031 14:09:32.019" endtime="20231031 14:09:32.146"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 14:09:37.147" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231031 14:09:32.146" endtime="20231031 14:09:37.147"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231031 14:09:37.147" endtime="20231031 14:09:37.176"/>
+</kw>
+<status status="PASS" starttime="20231031 14:09:15.585" endtime="20231031 14:09:37.176"/>
+</kw>
+<kw name="First" library="random_names">
+<var>${firstname}</var>
+<arg>${fir_nm}</arg>
+<msg timestamp="20231031 14:09:37.182" level="INFO">${firstname} = Pollerd</msg>
+<status status="PASS" starttime="20231031 14:09:37.177" endtime="20231031 14:09:37.182"/>
+</kw>
+<kw name="Last" library="random_names">
+<var>${lastname}</var>
+<arg>${lst_nm}</arg>
+<msg timestamp="20231031 14:09:37.189" level="INFO">${lastname} = Praysner_sogsun</msg>
+<status status="PASS" starttime="20231031 14:09:37.182" endtime="20231031 14:09:37.189"/>
+</kw>
+<kw name="Set email for account" library="Functions_Web">
+<var>${phnum}</var>
+<arg>${firstname}</arg>
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${email}</var>
+<arg>${firstname}.${lastname}_sogsun@mailinator.com</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231031 14:09:37.190" level="INFO">${email} = Pollerd.Praysner_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231031 14:09:37.189" endtime="20231031 14:09:37.190"/>
+</kw>
+<kw name="Convert To Lower Case" library="String">
+<var>${email_lwr}</var>
+<arg>${email}</arg>
+<doc>Converts string to lower case.</doc>
+<msg timestamp="20231031 14:09:37.190" level="INFO">${email_lwr} = pollerd.praysner_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231031 14:09:37.190" endtime="20231031 14:09:37.190"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.EMAIL}</arg>
+<arg>${email_lwr}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:09:37.191" level="INFO">Typing text 'pollerd.praysner_sogsun_sogsun@mailinator.com' into text field 'xpath=//input[@name="Email"]'.</msg>
+<status status="PASS" starttime="20231031 14:09:37.190" endtime="20231031 14:09:37.706"/>
+</kw>
+<msg timestamp="20231031 14:09:37.706" level="INFO">${phnum} = pollerd.praysner_sogsun_sogsun@mailinator.com</msg>
+<status status="PASS" starttime="20231031 14:09:37.189" endtime="20231031 14:09:37.706"/>
+</kw>
+<kw name="set phone for account" library="Functions_Web">
+<var>${email}</var>
+<arg>${System}</arg>
+<kw name="Generate Random String" library="String">
+<var>${num}</var>
+<arg>9</arg>
+<arg>[NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20231031 14:09:37.707" level="INFO">${num} = 728315547</msg>
+<status status="PASS" starttime="20231031 14:09:37.707" endtime="20231031 14:09:37.707"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${phn}</var>
+<arg>+4930${num}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231031 14:09:37.707" level="INFO">${phn} = +4930728315547</msg>
+<status status="PASS" starttime="20231031 14:09:37.707" endtime="20231031 14:09:37.707"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.MOB}</arg>
+<arg>${phn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:09:37.708" level="INFO">Typing text '+4930728315547' into text field 'xpath=//input[@name="PersonMobilePhone"]'.</msg>
+<status status="PASS" starttime="20231031 14:09:37.707" endtime="20231031 14:09:37.937"/>
+</kw>
+<msg timestamp="20231031 14:09:37.937" level="INFO">${email} = +4930728315547</msg>
+<status status="PASS" starttime="20231031 14:09:37.706" endtime="20231031 14:09:37.937"/>
+</kw>
+<kw name="Set firstname for account" library="Functions_Web">
+<arg>${firstname}</arg>
+<arg>${System}</arg>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20231031 14:09:37.938" endtime="20231031 14:09:38.243"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.FST_NM}</arg>
+<arg>${first_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:09:38.246" level="INFO">Typing text 'Pollerd' into text field 'xpath=//input[@name="FirstName"]'.</msg>
+<status status="PASS" starttime="20231031 14:09:38.243" endtime="20231031 14:09:38.530"/>
+</kw>
+<status status="PASS" starttime="20231031 14:09:37.937" endtime="20231031 14:09:38.530"/>
+</kw>
+<kw name="Set lastname for account" library="Functions_Web">
+<arg>${lastname}</arg>
+<arg>${System}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.LST_NM}</arg>
+<arg>${last_name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231031 14:09:38.532" level="INFO">Typing text 'Praysner_sogsun' into text field 'xpath=//input[@name="LastName"]'.</msg>
+<status status="PASS" starttime="20231031 14:09:38.531" endtime="20231031 14:09:38.704"/>
+</kw>
+<status status="PASS" starttime="20231031 14:09:38.530" endtime="20231031 14:09:38.704"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 14:09:41.704" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231031 14:09:38.704" endtime="20231031 14:09:41.704"/>
+</kw>
+<kw name="Set preferred address" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 14:09:43.707" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231031 14:09:41.706" endtime="20231031 14:09:43.707"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.PREF_ADR}</arg>
+<arg>Private</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20231031 14:09:43.712" level="INFO">Sending key(s) ('Private', 'ENTER') to xpath=//label[contains(text(),'Preferred Address')]/parent::div/descendant::div[4]/child::button/span element.</msg>
+<msg timestamp="20231031 14:09:44.097" level="INFO">Sending keys Private</msg>
+<msg timestamp="20231031 14:09:44.151" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20231031 14:09:44.151" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20231031 14:09:43.708" endtime="20231031 14:09:44.168"/>
+</kw>
+<status status="PASS" starttime="20231031 14:09:41.704" endtime="20231031 14:09:44.168"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>40s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231031 14:10:24.169" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" starttime="20231031 14:09:44.168" endtime="20231031 14:10:24.170"/>
+</kw>
+<kw name="Save the account" library="Functions_Web">
+<arg>${System}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=${${System}_ACCCR_LOC.ACC_SAV}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231031 14:10:24.173" level="INFO">Clicking element 'xpath=//button[contains(text(),'Save')]'.</msg>
+<msg timestamp="20231031 14:10:24.191" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6F8147892+54818]
+	(No symbol) [0x00007FF6F80B6AC2]
+	(No symbol) [0x00007FF6F7F6DA3B]
+	(No symbol) [0x00007FF6F7F4DEE8]
+	(No symbol) [0x00007FF6F7FD3237]
+	(No symbol) [0x00007FF6F7FE6C6F]
+	(No symbol) [0x00007FF6F7FCE883]
+	(No symbol) [0x00007FF6F7FA3691]
+	(No symbol) [0x00007FF6F7FA48D4]
+	GetHandleVerifier [0x00007FF6F84AB992+3610402]
+	GetHandleVerifier [0x00007FF6F8501860+3962352]
+	GetHandleVerifier [0x00007FF6F84F9D4F+3930847]
+	GetHandleVerifier [0x00007FF6F81E3646+693206]
+	(No symbol) [0x00007FF6F80C1628]
+	(No symbol) [0x00007FF6F80BD934]
+	(No symbol) [0x00007FF6F80BDA62]
+	(No symbol) [0x00007FF6F80AE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+<msg timestamp="20231031 14:10:24.196" level="FAIL">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6F8147892+54818]
+	(No symbol) [0x00007FF6F80B6AC2]
+	(No symbol) [0x00007FF6F7F6DA3B]
+	(No symbol) [0x00007FF6F7F4DEE8]
+	(No symbol) [0x00007FF6F7FD3237]
+	(No symbol) [0x00007FF6F7FE6C6F]
+	(No symbol) [0x00007FF6F7FCE883]
+	(No symbol) [0x00007FF6F7FA3691]
+	(No symbol) [0x00007FF6F7FA48D4]
+	GetHandleVerifier [0x00007FF6F84AB992+3610402]
+	GetHandleVerifier [0x00007FF6F8501860+3962352]
+	GetHandleVerifier [0x00007FF6F84F9D4F+3930847]
+	GetHandleVerifier [0x00007FF6F81E3646+693206]
+	(No symbol) [0x00007FF6F80C1628]
+	(No symbol) [0x00007FF6F80BD934]
+	(No symbol) [0x00007FF6F80BDA62]
+	(No symbol) [0x00007FF6F80AE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+<status status="FAIL" starttime="20231031 14:10:24.171" endtime="20231031 14:10:24.224"/>
+</kw>
+<status status="FAIL" starttime="20231031 14:10:24.170" endtime="20231031 14:10:24.224"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>40s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231031 14:10:24.224" endtime="20231031 14:10:24.225"/>
+</kw>
+<kw name="Validate Created account in SF" library="Salesforce_WEB_account">
+<arg>${firstname}</arg>
+<arg>${lastname}</arg>
+<arg>${phnum}</arg>
+<arg>${email}</arg>
+<arg>${System}</arg>
+<status status="NOT RUN" starttime="20231031 14:10:24.225" endtime="20231031 14:10:24.225"/>
+</kw>
+<status status="FAIL" starttime="20231031 14:09:14.452" endtime="20231031 14:10:24.226"/>
+</kw>
+<kw name="I close the browser" library="Common_WEB" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231031 14:10:24.229" endtime="20231031 14:10:26.780"/>
+</kw>
+<status status="PASS" starttime="20231031 14:10:24.228" endtime="20231031 14:10:26.780"/>
+</kw>
+<tag>REG</tag>
+<status status="FAIL" starttime="20231031 14:08:53.137" endtime="20231031 14:10:26.780">NoSuchWindowException: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6F8147892+54818]
+	(No symbol) [0x00007FF6F80B6AC2]
+	(No symbol) [0x00007FF6F7F6DA3B]
+	(No symbol) [0x00007FF6F7F4DEE8]
+	(No symbol) [0x00007FF6F7FD3237]
+	(No symbol) [0x00007FF6F7FE6C6F]
+	(No symbol) [0x00007FF6F7FCE883]
+	(No symbol) [0x00007FF6F7FA3691]
+	(No symbol) [0x00007FF6F7FA48D4]
+	GetHandleVerifier [0x00007FF6F84AB992+3610402]
+	GetHandleVerifier [0x00007FF6F8501860+3962352]
+	GetHandleVerifier [0x00007FF6F84F9D4F+3930847]
+	GetHandleVerifier [0x00007FF6F81E3646+693206]
+	(No symbol) [0x00007FF6F80C1628]
+	(No symbol) [0x00007FF6F80BD934]
+	(No symbol) [0x00007FF6F80BDA62]
+	(No symbol) [0x00007FF6F80AE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</status>
+</test>
+<status status="FAIL" starttime="20231031 14:08:52.553" endtime="20231031 14:10:26.786"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">REG</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Acc Creation PL">Acc Creation PL</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231031 14:10:24.191" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6F8147892+54818]
+	(No symbol) [0x00007FF6F80B6AC2]
+	(No symbol) [0x00007FF6F7F6DA3B]
+	(No symbol) [0x00007FF6F7F4DEE8]
+	(No symbol) [0x00007FF6F7FD3237]
+	(No symbol) [0x00007FF6F7FE6C6F]
+	(No symbol) [0x00007FF6F7FCE883]
+	(No symbol) [0x00007FF6F7FA3691]
+	(No symbol) [0x00007FF6F7FA48D4]
+	GetHandleVerifier [0x00007FF6F84AB992+3610402]
+	GetHandleVerifier [0x00007FF6F8501860+3962352]
+	GetHandleVerifier [0x00007FF6F84F9D4F+3930847]
+	GetHandleVerifier [0x00007FF6F81E3646+693206]
+	(No symbol) [0x00007FF6F80C1628]
+	(No symbol) [0x00007FF6F80BD934]
+	(No symbol) [0x00007FF6F80BDA62]
+	(No symbol) [0x00007FF6F80AE113]
+	BaseThreadInitThunk [0x00007FFD0149257D+29]
+	RtlUserThreadStart [0x00007FFD01DAAA78+40]
+</msg>
+</errors>
+</robot>

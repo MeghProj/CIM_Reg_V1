@@ -37,7 +37,7 @@ Navigate to account creation page
 
 Set email for account
     [Arguments]    ${firstname}    ${lastname}      ${System}
-    ${email} =    set variable       ${firstname}.${lastname}_sogsun@mailinator.com
+    ${email} =    set variable       ${firstname}.${lastname}_@mailinator.com
     ${email_lwr} =    convert to lower case    ${email}
     input text    xpath=${${System}_ACCCR_LOC.EMAIL}    ${email_lwr}
     [Return]    ${email_lwr}

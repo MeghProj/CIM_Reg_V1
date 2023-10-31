@@ -14,11 +14,12 @@ Library    ../Lib/random_names.py
 *** Keywords ***
 
 Validate SF data    
-    [Arguments]     ${fieldName}    ${loc}      ${system}
-    Scroll Element Into View    xpath=${${System}_ACC_LOC.FSTLST_NM}
-    ${name} =   get text    xpath=${${System}_ACC_LOC.FSTLST_NM}
+    [Arguments]     ${expectedData}    ${loc}      ${field}
+#    Scroll Element Into View    xpath= ${loc}
+    Sleep    5s
+    ${appData} =   get text    xpath= ${loc}
     TRY
-        Should Be Equal    ${name}    ${fieldName}
+        Should Be Equal    ${appData}    ${expectedData}
     EXCEPT
-        Log    Name is not same as entered data
+        Log    ${field} is not same as entered data ${expectedData}
     END
